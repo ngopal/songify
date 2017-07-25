@@ -1,0 +1,7 @@
+Currently uses a py27 environment, also I could probably use 3 if I make sure tensorflow is install via conda
+
+
+Downsampling code:
+ffmpeg -i "videoplayback.mp4" -vf fps=1/60 -f image2 "video-frame%03d.png"
+
+

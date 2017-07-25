@@ -1,0 +1,21 @@
+graph loaded from disk
+variables initialized
+prob shape (1000,)
+Top1:  n04254680 soccer ball
+Top5:  ['n04254680 soccer ball', 'n09835506 ballplayer, baseball player', 'n02799071 baseball', 'n03379051 football helmet', 'n04118538 rugby ball']
+variables initialized
+prob shape (1000,)
+Top1:  n03891251 park bench
+Top5:  ['n03891251 park bench', 'n04326547 stone wall', 'n04532670 viaduct', 'n03837869 obelisk', 'n09332890 lakeside, lakeshore']
+variables initialized
+prob shape (1000,)
+Top1:  n02389026 sorrel
+Top5:  ['n02389026 sorrel', 'n02087394 Rhodesian ridgeback', 'n02422106 hartebeest', 'n02403003 ox', 'n02100583 vizsla, Hungarian pointer']
+variables initialized
+prob shape (1000,)
+Top1:  n03832673 notebook, notebook computer
+Top5:  ['n03832673 notebook, notebook computer', 'n03642806 laptop, laptop computer', 'n03630383 lab coat, laboratory coat', 'n06359193 web site, website, internet site, site', 'n03291819 envelope']
+variables initialized
+prob shape (1000,)
+Top1:  n04200800 shoe shop, shoe-shop, shoe store
+Top5:  ['n04200800 shoe shop, shoe-shop, shoe store', 'n04356056 sunglasses, dark glasses, shades', 'n02877765 bottlecap', 'n04228054 ski', 'n04120489 running shoe']
