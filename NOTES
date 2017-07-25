@@ -1,7 +1,32 @@
-Currently uses a py27 environment, also I could probably use 3 if I make sure tensorflow is install via conda
 
-
-Downsampling code:
+## Downsampling code:
 ffmpeg -i "videoplayback.mp4" -vf fps=1/60 -f image2 "video-frame%03d.png"
 
+## Steps to MVP
+1. write server
+2. get data into SQL (if playlist in DB, then don't re-parse or hit API)
+3.
 
+## TODO
+1. Consider training my own "lyrics" models in spacy
+
+## Good Coding Practices to Follow
+1. Add logging
+2.
+
+
+## Algorithmic Considerations
+# NLP Side
+1. Try LDA or LDA2Vec
+2. Doc2Vec
+3. TF-IDF?
+
+# Signaling Processing
+1. Include SP data from Spotify?
+
+# Image Analysis Side
+1. Train own NN on videos and tags
+
+## Pivot Consideration
+1. Brand recognition
+2.
