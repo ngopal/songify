@@ -17,10 +17,10 @@ print("graph loaded from disk")
 graph = tf.get_default_graph()
 
 # analyze images in directory specified by sys.argv[1]
-loaded_images = [utils.load_image(sys.argv[1]+os.sep+i) for i in os.listdir(sys.argv[1])]
+loaded_images = [(i, utils.load_image(sys.argv[1]+os.sep+i)) for i in os.listdir(sys.argv[1])]
 cumulative_description_words = []
 
-for img in loaded_images:
+for imloc, img in loaded_images:
   with tf.Session() as sess:
     init = tf.initialize_all_variables()
     sess.run(init)
@@ -34,6 +34,7 @@ for img in loaded_images:
     prob_tensor = graph.get_tensor_by_name("import/prob:0")
     prob = sess.run(prob_tensor, feed_dict=feed_dict)
 
+  print(imloc)
   utils.print_prob(prob[0])
   cumulative_description_words.append(  utils.get_top(prob[0])  )
 

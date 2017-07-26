@@ -9,6 +9,7 @@ ffmpeg -i "videoplayback.mp4" -vf fps=1/60 -f image2 "video-frame%03d.png"
 
 ## TODO
 1. Consider training my own "lyrics" models in spacy
+2. Add "mood" processing for frames from video to match to music
 
 ## Good Coding Practices to Follow
 1. Add logging

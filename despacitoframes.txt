@@ -1,0 +1,32 @@
+graph loaded from disk
+variables initialized
+prob shape (1000,)
+Top1:  n02859443 boathouse
+Top5:  ['n02859443 boathouse', 'n02704792 amphibian, amphibious vehicle', 'n03895866 passenger car, coach, carriage', 'n03496892 harvester, reaper', 'n04252225 snowplow, snowplough']
+prob shape (1000,)
+variables initialized
+prob shape (1000,)
+Top1:  n02807133 bathing cap, swimming cap
+Top5:  ['n02807133 bathing cap, swimming cap', 'n04371430 swimming trunks, bathing trunks', 'n04355933 sunglass', 'n04356056 sunglasses, dark glasses, shades', 'n04251144 snorkel']
+prob shape (1000,)
+variables initialized
+prob shape (1000,)
+Top1:  n09428293 seashore, coast, seacoast, sea-coast
+Top5:  ['n09428293 seashore, coast, seacoast, sea-coast', 'n03947888 pirate, pirate ship', 'n04371430 swimming trunks, bathing trunks', 'n02837789 bikini, two-piece', 'n03733131 maypole']
+prob shape (1000,)
+variables initialized
+prob shape (1000,)
+Top1:  n03840681 ocarina, sweet potato
+Top5:  ['n03840681 ocarina, sweet potato', 'n03494278 harmonica, mouth organ, harp, mouth harp', 'n04081281 restaurant, eating house, eating place, eatery', 'n03476991 hair spray', 'n02948072 candle, taper, wax light']
+prob shape (1000,)
+variables initialized
+prob shape (1000,)
+Top1:  n04296562 stage
+Top5:  ['n04296562 stage', 'n04540053 volleyball', 'n03476991 hair spray', 'n04456115 torch', 'n04418357 theater curtain, theatre curtain']
+prob shape (1000,)
+variables initialized
+prob shape (1000,)
+Top1:  n03729826 matchstick
+Top5:  ['n03729826 matchstick', 'n01930112 nematode, nematode worm, roundworm', 'n03666591 lighter, light, igniter, ignitor', 'n03196217 digital clock', 'n04286575 spotlight, spot']
+prob shape (1000,)
+['n02859443 boathouse', 'n02807133 bathing cap, swimming cap', 'n09428293 seashore, coast, seacoast, sea-coast', 'n03840681 ocarina, sweet potato', 'n04296562 stage', 'n03729826 matchstick']

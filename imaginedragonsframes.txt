@@ -1,0 +1,92 @@
+graph loaded from disk
+variables initialized
+video-frame001.png
+prob shape (1000,)
+Top1:  n09472597 volcano
+Top5:  ['n09472597 volcano', 'n04286575 spotlight, spot', 'n03729826 matchstick', 'n03388043 fountain', 'n04404412 television, television system']
+prob shape (1000,)
+variables initialized
+video-frame002.png
+prob shape (1000,)
+Top1:  n04404412 television, television system
+Top5:  ['n04404412 television, television system', 'n01910747 jellyfish', 'n04152593 screen, CRT screen', 'n03729826 matchstick', 'n03782006 monitor']
+prob shape (1000,)
+variables initialized
+video-frame003.png
+prob shape (1000,)
+Top1:  n06359193 web site, website, internet site, site
+Top5:  ['n06359193 web site, website, internet site, site', 'n01930112 nematode, nematode worm, roundworm', 'n03729826 matchstick', 'n03291819 envelope', 'n02999410 chain']
+prob shape (1000,)
+variables initialized
+video-frame004.png
+prob shape (1000,)
+Top1:  n04404412 television, television system
+Top5:  ['n04404412 television, television system', 'n06359193 web site, website, internet site, site', 'n04371430 swimming trunks, bathing trunks', 'n04296562 stage', 'n03782006 monitor']
+prob shape (1000,)
+variables initialized
+video-frame005.png
+prob shape (1000,)
+Top1:  n04404412 television, television system
+Top5:  ['n04404412 television, television system', 'n03476991 hair spray', 'n02777292 balance beam, beam', 'n04152593 screen, CRT screen', 'n04286575 spotlight, spot']
+prob shape (1000,)
+variables initialized
+video-frame006.png
+prob shape (1000,)
+Top1:  n04404412 television, television system
+Top5:  ['n04404412 television, television system', 'n03529860 home theater, home theatre', 'n03782006 monitor', 'n04152593 screen, CRT screen', 'n04296562 stage']
+prob shape (1000,)
+variables initialized
+video-frame007.png
+prob shape (1000,)
+Top1:  n03782006 monitor
+Top5:  ['n03782006 monitor', 'n04404412 television, television system', 'n04286575 spotlight, spot', 'n04152593 screen, CRT screen', 'n03529860 home theater, home theatre']
+prob shape (1000,)
+variables initialized
+video-frame008.png
+prob shape (1000,)
+Top1:  n03250847 drumstick
+Top5:  ['n03250847 drumstick', 'n04404412 television, television system', 'n04376876 syringe', 'n03759954 microphone, mike', 'n03476991 hair spray']
+prob shape (1000,)
+variables initialized
+video-frame009.png
+prob shape (1000,)
+Top1:  n03832673 notebook, notebook computer
+Top5:  ['n03832673 notebook, notebook computer', 'n03642806 laptop, laptop computer', 'n04493381 tub, vat', 'n04404412 television, television system', 'n02883205 bow tie, bow-tie, bowtie']
+prob shape (1000,)
+variables initialized
+video-frame010.png
+prob shape (1000,)
+Top1:  n04286575 spotlight, spot
+Top5:  ['n04286575 spotlight, spot', 'n03729826 matchstick', 'n04296562 stage', 'n03759954 microphone, mike', 'n03666591 lighter, light, igniter, ignitor']
+prob shape (1000,)
+variables initialized
+video-frame011.png
+prob shape (1000,)
+Top1:  n04296562 stage
+Top5:  ['n04296562 stage', 'n01910747 jellyfish', 'n04404412 television, television system', 'n03759954 microphone, mike', 'n04141076 sax, saxophone']
+prob shape (1000,)
+variables initialized
+video-frame012.png
+prob shape (1000,)
+Top1:  n01910747 jellyfish
+Top5:  ['n01910747 jellyfish', 'n09472597 volcano', 'n03782006 monitor', 'n03857828 oscilloscope, scope, cathode-ray oscilloscope, CRO', 'n04296562 stage']
+prob shape (1000,)
+variables initialized
+video-frame013.png
+prob shape (1000,)
+Top1:  n04404412 television, television system
+Top5:  ['n04404412 television, television system', 'n09229709 bubble', 'n06359193 web site, website, internet site, site', 'n09472597 volcano', 'n04296562 stage']
+prob shape (1000,)
+variables initialized
+video-frame014.png
+prob shape (1000,)
+Top1:  n03782006 monitor
+Top5:  ['n03782006 monitor', 'n04296562 stage', 'n03196217 digital clock', 'n04456115 torch', 'n04152593 screen, CRT screen']
+prob shape (1000,)
+variables initialized
+video-frame015.png
+prob shape (1000,)
+Top1:  n03729826 matchstick
+Top5:  ['n03729826 matchstick', 'n01930112 nematode, nematode worm, roundworm', 'n03666591 lighter, light, igniter, ignitor', 'n03196217 digital clock', 'n04286575 spotlight, spot']
+prob shape (1000,)
+['n09472597 volcano', 'n04404412 television, television system', 'n06359193 web site, website, internet site, site', 'n04404412 television, television system', 'n04404412 television, television system', 'n04404412 television, television system', 'n03782006 monitor', 'n03250847 drumstick', 'n03832673 notebook, notebook computer', 'n04286575 spotlight, spot', 'n04296562 stage', 'n01910747 jellyfish', 'n04404412 television, television system', 'n03782006 monitor', 'n03729826 matchstick']

@@ -3,7 +3,7 @@ from subprocess import call
 
 
 def createCommand(videoloc,outdir):
-    command = 'ffmpeg -i "'+videoloc+'" -vf fps=1/60 -f image2 "'+outdir+'video-frame%03d.png"'
+    command = 'ffmpeg -i "'+videoloc+'" -vf fps=1/15 -f image2 "'+outdir+'video-frame%03d.png"'
     return command
 
 if len(sys.argv) >= 4:
