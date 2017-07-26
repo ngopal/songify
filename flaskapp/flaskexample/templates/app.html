@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vid2Song</title>
+</head>
+<form action="/result" method="post">
+    <h2>Upload Video</h2>
+    <input type="file" name="videofile" size="5MB"><br><br>
+    <select name="musicdrop">
+        <option value="80s">80s Smash Hits</option>
+        <option value="90s">90s West Coast G-Funk</option>
+        <option value="insight">Insight Test Set</option>
+    </select>
+    <br><br>
+    <input type="submit">
+</form>
+
+<h2>Songs</h2>
+<ul class="songs">
+    {% for s in songs %}
+    <li>{{s[0]}} | {{s[1]}}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
+

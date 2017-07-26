@@ -15,6 +15,9 @@ ffmpeg -i "videoplayback.mp4" -vf fps=1/60 -f image2 "video-frame%03d.png"
 ## Good Coding Practices to Follow
 1. Add logging
 2. Add Tests
+3. Add comments for context
+4. Add README that explains structure of code
+5. Name variables in easily interpretable ways
 
 
 ## Algorithmic Considerations

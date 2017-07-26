@@ -1,9 +1,8 @@
-import pandas as pd
-from sqlalchemy import create_engine
-from sqlalchemy_utils import database_exists, create_database
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
-import json
+from sqlalchemy import create_engine
+from sqlalchemy_utils import database_exists, create_database
+
 
 class SQL:
     """Parse data from APIs into SQL"""
