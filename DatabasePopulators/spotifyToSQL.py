@@ -1,6 +1,7 @@
-from SQLhelper import SQL
-from Spotifyhelper import SpotifyHelper
 import pandas as pd
+
+from Helpers.SQLhelper import SQL
+from Helpers.Spotifyhelper import SpotifyHelper
 
 # Initialize Spotify helper
 #pl = "spotify:user:acesamped:playlist:1VvcEiPSvXOBX9HYkiP0IL" ## Insight_TestDataSet

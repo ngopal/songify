@@ -1,7 +1,9 @@
-import spacy
-import pandas as pd
-from SQLhelper import SQL
 import operator
+import pandas as pd
+import spacy
+
+from Helpers.SQLhelper import SQL
+
 
 class DocModel:
     """A simple document model using cosine similarity"""

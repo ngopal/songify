@@ -1,13 +1,14 @@
 import tensorflow as tf
 import utils
 import sys, os
+from subprocess import call
 
 
 
 class VideoProc:
     def __init__(self):
         # load graph
-        with open("models/vgg16.tfmodel", mode='rb') as f:
+        with open("NNmodels/vgg16.tfmodel", mode='rb') as f:
             self.fileContent = f.read()
 
         self.graph_def = tf.GraphDef()
@@ -45,10 +46,17 @@ class VideoProc:
 
         return cumulative_description_words
 
+    def downSampleVideo(self,videoloc,outdir,frames):
+        command = 'ffmpeg -i "'+videoloc+'" -vf fps=1/'+str(frames)+' -f image2 "'+outdir+os.sep+'video-frame%03d.png"'
+        call([command], shell=True)
+        return
+
 
 if __name__ == "__main__":
     VP = VideoProc()
+    # VP.downSampleVideo("./testvideos/imaginedragons.mp4", "./testvideos/imagedragonframes", 15)
     print(VP.analyzeImagesInDir("./testvideos/imagedragonframes"))
+
 
 
 

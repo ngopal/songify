@@ -1,12 +1,8 @@
-import SQLhelper
-import pandas as pd
 import json
-import spotipy, requests
+import requests
+import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-from collections import defaultdict
-import sqlalchemy
-import operator
-import spacy
+
 
 class SpotifyHelper:
     def __init__(self, pl):
