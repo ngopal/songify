@@ -44,13 +44,13 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 pl = "spotify:user:acesamped:playlist:1VvcEiPSvXOBX9HYkiP0IL"
 
-artist_lyric_generator = (k for k in get_tracks_from_playlist(pl, getLyrics=True))
+#artist_lyric_generator = (k for k in get_tracks_from_playlist(pl, getLyrics=True))
 # I will want to use this generator to get data into a MySQL database
-df = pd.DataFrame(artist_lyric_generator)
-df.to_pickle("./artist_lyrics.p")
-#df = pd.read_pickle("./artist_lyrics.p")
+#df = pd.DataFrame(artist_lyric_generator)
+#df.to_pickle("./artist_lyrics.p")
+df = pd.read_pickle("./artist_lyrics.p")
 df.dropna(inplace=True)
-#print(df.head())
+print(df.head())
 
 # Process text
 # pd.options.display.max_colwidth = 1000

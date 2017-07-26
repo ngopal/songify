@@ -78,6 +78,8 @@ class SQL:
 
 if __name__ == "__main__":
     helper = SQL()
+
+    ###### EXAMPLE TO CREATE TABLE #########
     # schema = {
     #     "tablename" : "spotifyplaylistID",
     #     "index" : "SERIAL PRIMARY KEY",
@@ -88,18 +90,31 @@ if __name__ == "__main__":
     #     "lyrics" : "VARCHAR"
     # }
     # sc = helper.constructSchema(schema)
-    # helper.dropTable("spotifyplaylistid")
     #helper.createTable(sc)
-    #
+    ######################
 
-    # row = {'SpotifyArtistURI': 'spotify:artist:2ht3wxeT69CzyKFChNnNAB', 'commonArtistName': 'Big Boi', 'SpotifySongURI': 'spotify:track:4i2HYTGM7yHty0qVhD3lqD', 'commonSongName': 'Kryptonite - feat. Big Boi', 'lyrics': 'I be on it all night, man I be on it (day day) All day, straight up pimp If you want me, you can find me in the A!  AYE!(I\'m on it) Time and time again, I gotta turn back round and tell these hoes That I am the H-N-I-C, bitch that\'s just the way it goes I be on that shit that\'ll have you on that "I don\'t want no mo\'" At this time, I need all my freak hoes to get down on the flo\' If you came to rep your set, right now nigga, let \'em know If it\'s jail I get for stompin\' a hater to sleep, fuck it, I go Freak, I\'ll be off in the wheep Straight geeked swerving down your street In a stolen Bonneville with 23\'s on the feet The Legend, Rocky D Brown, back in town to plea you down Give me face, I love the sound Slap the taste, they hit the ground Back in the A Cliqued up, picked up with some people that don\'t play On that Kryptonite stay So high, we might fly awwwaaayyy  I be on that Kryptonite Straight up on that Kryptonite'}
+    # WARNING: UNCOMMENTING CODE BELOW WILL DROP THE TABLE
+    ##
+    ##
+    ##
+    #
+    helper.dropTable("spotifyplaylistid")
+    #
+    ##
+    ##########################
+
+
+
+    #### EXAMPLE TO INSERT DATA INTO TABLE AND PRINT IT
+    #
+    #row = {'SpotifyArtistURI': 'spotify:artist:2ht3wxeT69CzyKFChNnNAB', 'commonArtistName': 'Big Boi', 'SpotifySongURI': 'spotify:track:4i2HYTGM7yHty0qVhD3lqD', 'commonSongName': 'Kryptonite - feat. Big Boi', 'lyrics': 'I be on it all night, man I be on it (day day) All day, straight up pimp If you want me, you can find me in the A!  AYE!(I\'m on it) Time and time again, I gotta turn back round and tell these hoes That I am the H-N-I-C, bitch that\'s just the way it goes I be on that shit that\'ll have you on that "I don\'t want no mo\'" At this time, I need all my freak hoes to get down on the flo\' If you came to rep your set, right now nigga, let \'em know If it\'s jail I get for stompin\' a hater to sleep, fuck it, I go Freak, I\'ll be off in the wheep Straight geeked swerving down your street In a stolen Bonneville with 23\'s on the feet The Legend, Rocky D Brown, back in town to plea you down Give me face, I love the sound Slap the taste, they hit the ground Back in the A Cliqued up, picked up with some people that don\'t play On that Kryptonite stay So high, we might fly awwwaaayyy  I be on that Kryptonite Straight up on that Kryptonite'}
     #row2 = {'SpotifyArtistURI': 'spotify:artist:adsadadasds', 'commonArtistName': 'asda Boi', 'SpotifySongURI': 'spotify:track:asdsadsdad', 'commonSongName': 'Kryptonite - feat. Big asd', 'lyrics': 'I be on it all adsa, man I be on it (day day) All day, straight up pimp If you want me, you can find me in the A!  AYE!(I\'m on it) Time and time again, I gotta turn back round and tell these hoes That I am the H-N-I-C, bitch that\'s just the way it goes I be on that shit that\'ll have you on that "I don\'t want no mo\'" At this time, I need all my freak hoes to get down on the flo\' If you came to rep your set, right now nigga, let \'em know If it\'s jail I get for stompin\' a hater to sleep, fuck it, I go Freak, I\'ll be off in the wheep Straight geeked swerving down your street In a stolen Bonneville with 23\'s on the feet The Legend, Rocky D Brown, back in town to plea you down Give me face, I love the sound Slap the taste, they hit the ground Back in the A Cliqued up, picked up with some people that don\'t play On that Kryptonite stay So high, we might fly awwwaaayyy  I be on that Kryptonite Straight up on that Kryptonite'}
     #rows = { str(r): {'SpotifyArtistURI': 'spotify:artist:'+str(r), 'commonArtistName': str(r), 'SpotifySongURI': 'spotify:track:'+str(r), 'commonSongName': 'BIG '+str(r), 'lyrics': 'jhksadhahdkjshdkahhsjdas'} for r in range(100)}
     #dfA = pd.DataFrame().from_dict(rows, orient='index')
     #print(dfA)
     #dfA.to_sql('spotifyplaylistid', helper.engine, if_exists='append')
 
-    print(pd.read_sql_table('spotifyplaylistid', helper.engine))
+    #print(pd.read_sql_table('spotifyplaylistid', helper.engine))
 
 
 
