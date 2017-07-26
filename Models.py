@@ -22,7 +22,8 @@ class DocModel:
 
         real_test = image_keywords
         real_test = [i.split(" ")[-1] for i in real_test]
-        in_str = ''.join(real_test)
+        in_str = ' '.join(real_test)
+        print(in_str)
         inModel = nlp(in_str)
         results = {}
 
