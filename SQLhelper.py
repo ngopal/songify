@@ -32,7 +32,7 @@ class SQL:
         self.cur.execute(schemaCommand)
 
     def dropTable(self, tableName):
-        self.cur.execute("DROP TABLE "+tableName)
+        self.cur.execute("DROP TABLE \""+tableName+"\"")
 
     def constructSchema(self, schema):
         schemaCommand = 'CREATE TABLE '
@@ -98,7 +98,8 @@ if __name__ == "__main__":
     ##
     ##
     #
-    helper.dropTable("spotifyplaylistid")
+    #helper.dropTable("spotifyplaylistid")
+    #helper.dropTable("4SMubSJhL8oHG1RNa6RGkQ")
     #
     ##
     ##########################

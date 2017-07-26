@@ -34,13 +34,29 @@ class SpotifyHelper:
         # Given a playlist, I need to store
         # commonArtistName, commonSongName, SpotifyArtistURI, SpotifySongURI
         playlist_tracks = self.sp.user_playlist_tracks(**self.parse_playlist_url(spurl))
-        for i,v in enumerate(playlist_tracks['items']):
-            yield { "SpotifyArtistURI": v['track']['artists'][0]['uri'],
-                    "commonArtistName": v['track']['artists'][0]['name'],
-                    "SpotifySongURI": v['track']['uri'],
-                    "commonSongName": v['track']['name'],
-                    "lyrics" : self.extract_lyrics(self.get_lyrics(v['track']['name'], v['track']['artists'][0]['name']))}
+        tracks = playlist_tracks['items']
+        while playlist_tracks['next']:
+            playlist_tracks = self.sp.next(playlist_tracks)
+            tracks.extend(playlist_tracks['items'])
+            for i,v in enumerate(playlist_tracks['items']):
+                yield { "SpotifyArtistURI": v['track']['artists'][0]['uri'],
+                        "commonArtistName": v['track']['artists'][0]['name'],
+                        "SpotifySongURI": v['track']['uri'],
+                        "commonSongName": v['track']['name'],
+                        "lyrics" : self.extract_lyrics(self.get_lyrics(v['track']['name'], v['track']['artists'][0]['name']))}
+
+
+    def downloadTracksArtistsLyrics(self):
+        pass
+
+    def downloadTracksAristsAudioFeatures(self):
+        pass
 
 
 if __name__ == "__main__":
     print("Spotify Helper")
+    SPhelper = SpotifyHelper("spotify:user:andreaskarsten:playlist:6wz8ygUKjoHfbU7tB9djeS")
+    kit = SPhelper.get_tracks_from_playlist("spotify:user:andreaskarsten:playlist:6wz8ygUKjoHfbU7tB9djeS")
+
+    for k in kit:
+        print(k)

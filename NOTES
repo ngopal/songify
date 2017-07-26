@@ -4,16 +4,17 @@ ffmpeg -i "videoplayback.mp4" -vf fps=1/60 -f image2 "video-frame%03d.png"
 
 ## Steps to MVP
 1. write server
-2. get data into SQL (if playlist in DB, then don't re-parse or hit API)
-3.
+2. Beat 100 song limit on Spotify (ask Rebecca)
 
 ## TODO
 1. Consider training my own "lyrics" models in spacy
 2. Add "mood" processing for frames from video to match to music
+3. Refactor Models into Models Package
+4. Refactor helpers into Helpers Package
 
 ## Good Coding Practices to Follow
 1. Add logging
-2.
+2. Add Tests
 
 
 ## Algorithmic Considerations
@@ -45,5 +46,10 @@ ffmpeg -i "videoplayback.mp4" -vf fps=1/60 -f image2 "video-frame%03d.png"
 # to set as the background. His client has provided 250 songs, which he has no time to go through. In fact, the songs
 # are primarily from an esoteric genre called Emocore, which he is not an expert in. This app will help Terry find the
 # right song to use for his video.
+#
+# Scarlet the Advertiser:
+# Scarlet is an excellent advertiser. She is producing a television commercial and had to spend most of her budget on
+# video production. However, she still needs a soundtrack for her commercial, and over 500 approved options. This
+# tool will help her find a relevant song for her commercial.
 #
 ###
