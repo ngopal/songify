@@ -20,8 +20,8 @@ class DocModel:
                     """The code expects a certain schema"""
                     doc_models.append({"song": row[5], "model" : nlp(row[6])})
 
-        reat_test = image_keywords
-        reat_test = [i.split(" ")[-1] for i in real_test]
+        real_test = image_keywords
+        real_test = [i.split(" ")[-1] for i in real_test]
         in_str = ''.join(real_test)
         inModel = nlp(in_str)
         results = {}
