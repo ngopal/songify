@@ -31,3 +31,19 @@ ffmpeg -i "videoplayback.mp4" -vf fps=1/60 -f image2 "video-frame%03d.png"
 ## Pivot Consideration
 1. Brand recognition
 2.
+
+
+## Data Story
+#
+# Wedding Videographer:
+# John is a wedding videographer and he has footage, as well as a playlist from the newlyweds...
+# A playlist...with 1000 songs. This app helps John find the right song for the right clip using
+# a combination of context from the video, as well as the topic of the songs in the playlist
+#
+# Terry the Animator:
+# Terry is an animator. He needs to edit thousands of frames this weekend and he also needs to find the right music
+# to set as the background. His client has provided 250 songs, which he has no time to go through. In fact, the songs
+# are primarily from an esoteric genre called Emocore, which he is not an expert in. This app will help Terry find the
+# right song to use for his video.
+#
+###
