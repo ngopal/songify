@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00308797-0c59-47c8-a9c1-c6290d390e2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analysis/Clustering.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py" afterPath="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Helpers/Spotifyhelper.py" afterPath="$PROJECT_DIR$/Helpers/Spotifyhelper.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NOTES" afterPath="$PROJECT_DIR$/NOTES" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" afterPath="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flaskapp/flaskexample/views.py" afterPath="$PROJECT_DIR$/flaskapp/flaskexample/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -106,8 +99,8 @@
       <file leaf-file-name="VideoProcessing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VideoProcessing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="40" column="43" lean-forward="false" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="43" />
+            <state relative-caret-position="60">
+              <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="26" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -118,11 +111,11 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="66" column="69" lean-forward="false" selection-start-line="66" selection-start-column="69" selection-end-line="66" selection-end-column="69" />
+            <state relative-caret-position="378">
+              <caret line="70" column="106" lean-forward="true" selection-start-line="70" selection-start-column="106" selection-end-line="70" selection-end-column="106" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
-                <marker date="1501181676000" expanded="true" signature="1050:1088" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
+                <marker date="1501191062000" expanded="true" signature="1097:1135" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
               </folding>
             </state>
           </provider>
@@ -132,7 +125,7 @@
         <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="15" lean-forward="true" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+              <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -292,6 +285,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="flaskexample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vid2song" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vid2song" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flaskapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flaskexample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uploads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imagedragons" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1059,12 +1078,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500872045873</updated>
-      <workItem from="1500872047389" duration="59844000" />
+      <workItem from="1500872047389" duration="61801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59844000" />
+    <option name="totallyTimeSpent" value="61801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="23" width="1260" height="760" extended-state="0" />
@@ -1306,16 +1325,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VideoProcessing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="40" column="43" lean-forward="false" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flaskapp/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1348,7 +1357,7 @@
     <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="15" lean-forward="true" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+          <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -1361,13 +1370,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/VideoProcessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="66" column="69" lean-forward="false" selection-start-line="66" selection-start-column="69" selection-end-line="66" selection-end-column="69" />
+        <state relative-caret-position="378">
+          <caret line="70" column="106" lean-forward="true" selection-start-line="70" selection-start-column="106" selection-end-line="70" selection-end-column="106" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
-            <marker date="1501181676000" expanded="true" signature="1050:1088" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
+            <marker date="1501191062000" expanded="true" signature="1097:1135" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
           </folding>
         </state>
       </provider>
