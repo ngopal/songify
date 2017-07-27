@@ -1,5 +1,6 @@
 import pandas as pd
-
+import sys
+sys.path.append('/Users/nikhilgopal/Documents/Insight/vid2song/')
 from Helpers.SQLhelper import SQL
 from Helpers.Spotifyhelper import SpotifyHelper
 
@@ -7,11 +8,12 @@ from Helpers.Spotifyhelper import SpotifyHelper
 #pl = "spotify:user:acesamped:playlist:1VvcEiPSvXOBX9HYkiP0IL" ## Insight_TestDataSet
 #pl = "spotify:user:thesoundsofspotify:playlist:4SMubSJhL8oHG1RNa6RGkQ" ## Sound of Seattle Playlist
 #pl = "spotify:user:andreaskarsten:playlist:6wz8ygUKjoHfbU7tB9djeS" ## 90's West Coast G-Funk
-pl = "spotify:user:myplay.com:playlist:19PgP2QSGPcm6Ve8VhbtpG" # 80's Smash Hits
+# pl = "spotify:user:myplay.com:playlist:19PgP2QSGPcm6Ve8VhbtpG" # 80's Smash Hits
+pl = "spotify:user:acesamped:playlist:7eHApqa9YVkuO6gELsju2j" # muzic
 pl_name = pl.split(":")[-1]
 print(pl_name)
 #pl_name = "spotifyplaylistid"
-SPhelper = SpotifyHelper(pl)
+SPhelper = SpotifyHelper()
 
 # Connect to Database
 DBhelper = SQL()

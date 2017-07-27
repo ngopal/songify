@@ -5,8 +5,8 @@ from spotipy.oauth2 import SpotifyClientCredentials
 
 
 class SpotifyHelper:
-    def __init__(self, pl):
-        self.pl = pl
+    def __init__(self):
+        self.pl = None
         self.client_credentials_manager = SpotifyClientCredentials(client_id='dd4a138913544c12bf60424687fbbb83', client_secret='6d06781d13204cfca63f0f338a09a937')
         self.sp = spotipy.Spotify(client_credentials_manager=self.client_credentials_manager)
 
@@ -42,6 +42,13 @@ class SpotifyHelper:
                         "lyrics" : self.extract_lyrics(self.get_lyrics(v['track']['name'], v['track']['artists'][0]['name']))}
 
 
+    def get_audio_analysis_for_track(self,trackids):
+        """ Given a set of trackIDs, return the audio analysis generator """
+        for uri in trackids:
+            audio_features = self.sp.audio_features(uri)
+            yield audio_features
+
+
     def downloadTracksArtistsLyrics(self):
         pass
 
@@ -51,7 +58,7 @@ class SpotifyHelper:
 
 if __name__ == "__main__":
     print("Spotify Helper")
-    SPhelper = SpotifyHelper("spotify:user:andreaskarsten:playlist:6wz8ygUKjoHfbU7tB9djeS")
+    SPhelper = SpotifyHelper()
     kit = SPhelper.get_tracks_from_playlist("spotify:user:andreaskarsten:playlist:6wz8ygUKjoHfbU7tB9djeS")
 
     for k in kit:

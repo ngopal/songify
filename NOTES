@@ -11,6 +11,8 @@ ffmpeg -i "videoplayback.mp4" -vf fps=1/60 -f image2 "video-frame%03d.png"
 2. Add "mood" processing for frames from video to match to music
 3. Refactor Models into Models Package
 4. Refactor helpers into Helpers Package
+5. Diagnostics/Performance package to look at image_keywords and how they map in space
+-- Evaluate how well lyric lines from songs match up to vector space.
 
 ## Good Coding Practices to Follow
 1. Add logging
@@ -19,12 +21,16 @@ ffmpeg -i "videoplayback.mp4" -vf fps=1/60 -f image2 "video-frame%03d.png"
 4. Add README that explains structure of code
 5. Name variables in easily interpretable ways
 
+## Data
+1. Write function to pull audio_analysis data into related SQL table
+
 
 ## Algorithmic Considerations
 # NLP Side
 1. Try LDA or LDA2Vec
 2. Doc2Vec
 3. TF-IDF?
+4. Denis Willet suggested TSNE and then clustering, and then showing that selected songs are within topic/genre
 
 # Signaling Processing
 1. Include SP data from Spotify?

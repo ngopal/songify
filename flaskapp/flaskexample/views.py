@@ -1,13 +1,15 @@
 from flask import render_template, request
 from flaskexample import app
 from sqlalchemy import create_engine
-from sqlalchemy_utils import database_exists, create_database
-import pandas as pd
 import psycopg2
-
-import sys
+from werkzeug.utils import secure_filename
+import sys, os
 sys.path.append('/Users/nikhilgopal/Documents/Insight/vid2song/')
 from Models import DocModel
+
+UPLOAD_FOLDER = './flaskexample/uploads/'
+ALLOWED_EXTENSIONS = set(['.mp4'])
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 user = 'nikhilgopal' #add your username here (same as previous postgreSQL)
 host = 'localhost'
@@ -15,6 +17,10 @@ dbname = 'spotify_db'
 db = create_engine('postgres://%s%s/%s'%(user,host,dbname))
 con = None
 con = psycopg2.connect(database = dbname, user = user)
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/')
 @app.route('/index')
@@ -52,7 +58,14 @@ def result_page():
     }
     if request.method == 'POST':
         result = request.form
+        files = request.files
         print(result.getlist('musicdrop'))
+        print(files)
+        for f in files:
+            print(files[f])
+            print(files[f].filename)
+            files[f].save(os.path.join(app.config['UPLOAD_FOLDER'], files[f].filename))
+
         Model = DocModel(model_choices[result.getlist('musicdrop')[0]])
         keyws = ['n04162706 seat belt, seatbelt', 'n02965783 car mirror', 'n03452741 grand piano, grand', 'n04070727 refrigerator, icebox', 'n04162706 seat belt, seatbelt', 'n04200800 shoe shop, shoe-shop, shoe store', 'n03670208 limousine, limo', 'n02687172 aircraft carrier, carrier, flattop, attack aircraft carrier', 'n04356056 sunglasses, dark glasses, shades', 'n04356056 sunglasses, dark glasses, shades', 'n03534580 hoopskirt, crinoline', 'n03032252 cinema, movie theater, movie theatre, movie house, picture palace']
         songs = Model.nullModel(keyws)
