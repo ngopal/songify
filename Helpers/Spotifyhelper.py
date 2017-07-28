@@ -11,18 +11,20 @@ class SpotifyHelper:
         self.sp = spotipy.Spotify(client_credentials_manager=self.client_credentials_manager)
 
     def get_lyrics(self,song,artist):
+        """ Given a song and artist combination, create the url from musixmatch """
         return "http://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track="+song+"&q_artist="+artist+"&apikey=15520e2ca69218fca90985897c14f4f3"
 
     def extract_lyrics(self,lyric_url):
+        """ Given the url from musixmatch for a selected artist/song combination, return lyrics """
         dob = requests.request("GET", lyric_url)
         dob_obj = json.loads(dob.content.decode("UTF-8"))
         if dob_obj["message"]["body"]:
-            #return dob_obj["message"]["body"]["lyrics"]["lyrics_body"]
             return ' '.join(dob_obj["message"]["body"]["lyrics"]["lyrics_body"].split("\n")[:-4])
         else:
             return None
 
     def parse_playlist_url(self,spidurl):
+        """ Example spidurl: spotify:user:spotify:playlist:37i9dQZF1DWSkMjlBZAZ07  """
         tokens = spidurl.split(":")
         return {"user": tokens[2], "playlist_id": tokens[-1]}
 
@@ -47,13 +49,6 @@ class SpotifyHelper:
         for uri in trackids:
             audio_features = self.sp.audio_features(uri)
             yield audio_features
-
-
-    def downloadTracksArtistsLyrics(self):
-        pass
-
-    def downloadTracksAristsAudioFeatures(self):
-        pass
 
 
 if __name__ == "__main__":

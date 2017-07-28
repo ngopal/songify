@@ -6,10 +6,13 @@
 <form action="/result" method="post" enctype = "multipart/form-data">
     <h2>Upload Video</h2>
     <input type="file" name="file"><br><br>
+    <h2>Select Spotify Playlist</h2>
     <select name="musicdrop">
         <option value="80s">80s Smash Hits</option>
         <option value="90s">90s West Coast G-Funk</option>
         <option value="insight">Insight Test Set</option>
+        <option value="muzic">Muzic</option>
+        <option value="megan">Megan</option>
     </select>
     <br><br>
     <input type="submit">
@@ -21,6 +24,8 @@
     <li>{{s[0]}} | {{s[1]}}</li>
     {% endfor %}
 </ul>
+<h3>Keywords from images</h3>
+{{keywords}}
 </body>
 </html>
 
