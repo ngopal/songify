@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00308797-0c59-47c8-a9c1-c6290d390e2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LDA.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py" afterPath="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Helpers/Spotifyhelper.py" afterPath="$PROJECT_DIR$/Helpers/Spotifyhelper.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flaskapp/flaskexample/views.py" afterPath="$PROJECT_DIR$/flaskapp/flaskexample/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LDA.py" afterPath="$PROJECT_DIR$/LDA.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,8 +44,8 @@
             <state relative-caret-position="240">
               <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
               <folding>
-                <marker date="1501173693000" expanded="true" signature="910:943" ph="SELECT \&quot;Spo... " />
-                <marker date="1501173693000" expanded="true" signature="910:956" ph="SELECT \&quot;Spo... " />
+                <marker date="1501374278000" expanded="true" signature="910:943" ph="SELECT \&quot;Spo... " />
+                <marker date="1501374278000" expanded="true" signature="910:956" ph="SELECT \&quot;Spo... " />
               </folding>
             </state>
           </provider>
@@ -70,9 +67,12 @@
         <entry file="file://$PROJECT_DIR$/LDA.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+              <caret line="104" column="12" lean-forward="false" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="12" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
+                <marker date="1501377661000" expanded="true" signature="828:844" ph="SELECT * FRO... " />
+                <marker date="1501377661000" expanded="true" signature="828:854" ph="SELECT * FRO... missing_value" />
+                <marker date="1501377661000" expanded="true" signature="828:873" ph="SELECT * FRO... " />
               </folding>
             </state>
           </provider>
@@ -82,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/VideoProcessing.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-132">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -97,7 +97,7 @@
               <caret line="73" column="48" lean-forward="false" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
-                <marker date="1501275027000" expanded="true" signature="1121:1159" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
+                <marker date="1501374278000" expanded="true" signature="1121:1159" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
               </folding>
             </state>
           </provider>
@@ -1037,12 +1037,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500872045873</updated>
-      <workItem from="1500872047389" duration="77995000" />
+      <workItem from="1500872047389" duration="81416000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77995000" />
+    <option name="totallyTimeSpent" value="81416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="23" width="1260" height="760" extended-state="0" />
@@ -1195,29 +1195,29 @@
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="33" />
           <folding>
-            <marker date="1501113210000" expanded="true" signature="350:363" ph="SELECT * FRO... " />
-            <marker date="1501113210000" expanded="true" signature="350:366" ph="SELECT * FRO... " />
-            <marker date="1501113210000" expanded="true" signature="350:383" ph="SELECT * FRO... " />
-            <marker date="1501113210000" expanded="true" signature="350:387" ph="SELECT * FRO... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="350:407" ph="SELECT * FRO... " />
-            <marker date="1501113210000" expanded="true" signature="436:590" ph="SELECT * FRO... aa_6wz8ygUKjoHfbU7tB9djeS" />
-            <marker date="1501113210000" expanded="true" signature="638:658" ph="SELECT * FRO... " />
-            <marker date="1501113210000" expanded="true" signature="638:660" ph="SELECT * FRO... " />
-            <marker date="1501113210000" expanded="true" signature="638:676" ph="SELECT \&quot;uri... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="638:677" ph="SELECT * FRO... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="638:696" ph="SELECT * FRO... " />
-            <marker date="1501113210000" expanded="true" signature="724:773" ph="SELECT \&quot;Spo... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="948:980" ph="SELECT \&quot;Spo... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="948:981" ph="SELECT * FRO... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="948:1001" ph="SELECT * FRO... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="948:1008" ph="SELECT * FRO... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="948:1029" ph="SELECT * FRO... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="948:1036" ph="SELECT * FRO... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="948:1055" ph="SELECT * FRO... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="948:1391" ph="SELECT * FRO... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="1147:1239" ph="SELECT * FRO... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="1147:1262" ph="SELECT * FRO... missing_value" />
-            <marker date="1501113210000" expanded="true" signature="1147:1281" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="350:363" ph="SELECT * FRO... " />
+            <marker date="1501374278000" expanded="true" signature="350:366" ph="SELECT * FRO... " />
+            <marker date="1501374278000" expanded="true" signature="350:383" ph="SELECT * FRO... " />
+            <marker date="1501374278000" expanded="true" signature="350:387" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="350:407" ph="SELECT * FRO... " />
+            <marker date="1501374278000" expanded="true" signature="436:590" ph="SELECT * FRO... aa_6wz8ygUKjoHfbU7tB9djeS" />
+            <marker date="1501374278000" expanded="true" signature="638:658" ph="SELECT * FRO... " />
+            <marker date="1501374278000" expanded="true" signature="638:660" ph="SELECT * FRO... " />
+            <marker date="1501374278000" expanded="true" signature="638:676" ph="SELECT \&quot;uri... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="638:677" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="638:696" ph="SELECT * FRO... " />
+            <marker date="1501374278000" expanded="true" signature="724:773" ph="SELECT \&quot;Spo... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="948:980" ph="SELECT \&quot;Spo... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="948:981" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="948:1001" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="948:1008" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="948:1029" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="948:1036" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="948:1055" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="948:1391" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="1147:1239" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="1147:1262" ph="SELECT * FRO... missing_value" />
+            <marker date="1501374278000" expanded="true" signature="1147:1281" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -1272,12 +1272,12 @@
           <caret line="49" column="33" lean-forward="false" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1501100104000" expanded="true" signature="1215:1227" ph="DROP TABLE \... " />
-            <marker date="1501100104000" expanded="true" signature="1215:1240" ph="DROP TABLE \... " />
-            <marker date="1501100104000" expanded="true" signature="1215:1242" ph="DROP TABLE \... " />
-            <marker date="1501100104000" expanded="true" signature="1215:1243" ph="DROP TABLE \... " />
-            <marker date="1501100104000" expanded="true" signature="1215:1245" ph="DROP TABLE \... " />
-            <marker date="1501100104000" expanded="true" signature="2459:2595" ph="INSERT INTO spotifyplaylistid... " />
+            <marker date="1501374278000" expanded="true" signature="1215:1227" ph="DROP TABLE \... " />
+            <marker date="1501374278000" expanded="true" signature="1215:1240" ph="DROP TABLE \... " />
+            <marker date="1501374278000" expanded="true" signature="1215:1242" ph="DROP TABLE \... " />
+            <marker date="1501374278000" expanded="true" signature="1215:1243" ph="DROP TABLE \... " />
+            <marker date="1501374278000" expanded="true" signature="1215:1245" ph="DROP TABLE \... " />
+            <marker date="1501374278000" expanded="true" signature="2459:2595" ph="INSERT INTO spotifyplaylistid... " />
           </folding>
         </state>
       </provider>
@@ -1287,8 +1287,8 @@
         <state relative-caret-position="240">
           <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
           <folding>
-            <marker date="1501173693000" expanded="true" signature="910:943" ph="SELECT \&quot;Spo... " />
-            <marker date="1501173693000" expanded="true" signature="910:956" ph="SELECT \&quot;Spo... " />
+            <marker date="1501374278000" expanded="true" signature="910:943" ph="SELECT \&quot;Spo... " />
+            <marker date="1501374278000" expanded="true" signature="910:956" ph="SELECT \&quot;Spo... " />
           </folding>
         </state>
       </provider>
@@ -1331,7 +1331,7 @@
           <caret line="73" column="48" lean-forward="false" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
-            <marker date="1501275027000" expanded="true" signature="1121:1159" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
+            <marker date="1501374278000" expanded="true" signature="1121:1159" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
           </folding>
         </state>
       </provider>
@@ -1359,7 +1359,7 @@
     <entry file="file://$PROJECT_DIR$/VideoProcessing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-132">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -1369,9 +1369,12 @@
     <entry file="file://$PROJECT_DIR$/LDA.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+          <caret line="104" column="12" lean-forward="false" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="12" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
+            <marker date="1501377661000" expanded="true" signature="828:844" ph="SELECT * FRO... " />
+            <marker date="1501377661000" expanded="true" signature="828:854" ph="SELECT * FRO... missing_value" />
+            <marker date="1501377661000" expanded="true" signature="828:873" ph="SELECT * FRO... " />
           </folding>
         </state>
       </provider>
