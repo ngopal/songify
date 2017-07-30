@@ -31,10 +31,21 @@ class SpotifyHelper:
     def get_tracks_from_playlist(self,spurl):
         # Given a playlist, I need to store
         # commonArtistName, commonSongName, SpotifyArtistURI, SpotifySongURI
+
+        # Go through first page of tracks results
         playlist_tracks = self.sp.user_playlist_tracks(**self.parse_playlist_url(spurl))
         tracks = playlist_tracks['items']
+        for i,v in enumerate(playlist_tracks['items']):
+            yield { "SpotifyArtistURI": v['track']['artists'][0]['uri'],
+                    "commonArtistName": v['track']['artists'][0]['name'],
+                    "SpotifySongURI": v['track']['uri'],
+                    "commonSongName": v['track']['name'],
+                    "lyrics" : self.extract_lyrics(self.get_lyrics(v['track']['name'], v['track']['artists'][0]['name']))}
+
+        # If there are additional results (past 100 values), then continue yielding...
         while playlist_tracks['next']:
             playlist_tracks = self.sp.next(playlist_tracks)
+            print(playlist_tracks)
             tracks.extend(playlist_tracks['items'])
             for i,v in enumerate(playlist_tracks['items']):
                 yield { "SpotifyArtistURI": v['track']['artists'][0]['uri'],

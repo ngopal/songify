@@ -68,6 +68,11 @@ def result_page():
         print(files)
         # words = ['n04162706 seat belt, seatbelt', 'n02965783 car mirror', 'n03452741 grand piano, grand', 'n04070727 refrigerator, icebox', 'n04162706 seat belt, seatbelt', 'n04200800 shoe shop, shoe-shop, shoe store', 'n03670208 limousine, limo', 'n02687172 aircraft carrier, carrier, flattop, attack aircraft carrier', 'n04356056 sunglasses, dark glasses, shades', 'n04356056 sunglasses, dark glasses, shades', 'n03534580 hoopskirt, crinoline', 'n03032252 cinema, movie theater, movie theatre, movie house, picture palace']
         words = []
+
+        # If Spotify URL provided then bleh
+        # If dropdown, then blah
+        # Else fail so hard it will make you cry
+
         for f in files:
             # print(files[f])
             # print(files[f].filename)
