@@ -61,6 +61,12 @@ class SpotifyHelper:
             audio_features = self.sp.audio_features(uri)
             yield audio_features
 
+    def get_genre_given_song(self, song_sp_url):
+        song_data = self.sp.artist(song_sp_url)
+        if "genres" in song_data:
+            for g in song_data["genres"]:
+                yield { "SpotifyArtistURI" : song_data["uri"], "Genre" : g}
+
 
 if __name__ == "__main__":
     print("Spotify Helper")

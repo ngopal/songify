@@ -1,10 +1,4 @@
-from gensim.models.word2vec import Word2Vec
-from sklearn.manifold import TSNE
-from sklearn.datasets import fetch_20newsgroups
-import re
-import matplotlib.pyplot as plt
 import sys
-
 sys.path.append('/Users/nikhilgopal/Documents/Insight/vid2song/')
 from Helpers.SQLhelper import SQL
 import pandas as pd
@@ -12,6 +6,12 @@ from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 import spacy
 from nltk.corpus import words
+from collections import defaultdict
+import logging
+from nltk.stem import *
+from nltk.stem.wordnet import WordNetLemmatizer
+
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 # Load Database
 DBhelper = SQL()
@@ -31,7 +31,7 @@ print(lyrics)
 from gensim import corpora
 
 documents = lyrics
-stoplist = set('for a of the and to in yeah who don like got want know baby let hey come tell need'.split())
+stoplist = set('for a of the and to in yeah who don like got want know baby let hey come tell need said way thing cause little look'.split())
 # texts = [[word for word in document.lower().split() if word not in stoplist] for document in documents]
 
 # Use NLTK tokenizer to correctly split contracted words
@@ -40,7 +40,7 @@ tokenizer = RegexpTokenizer(r'\w+')
 #stopset = set(stopwords.words('english'))
 stopset = set(spacy.en.STOP_WORDS)
 en_words = set(words.words())
-# texts = [tokenizer.tokenize(document) for document in documents]
+stemmer = SnowballStemmer("english")
 
 
 # Should I make the top N ranked words stopwords in the spacy dataset?
@@ -52,6 +52,12 @@ def notStopWord(word):
 # Ensure words are lowercase
 texts = [list(map(lambda word: word.lower(), tokenizer.tokenize(document))) for document in documents]
 
+# Ensure words are in the same tense
+texts = [list(map(lambda word: WordNetLemmatizer().lemmatize(word, "v"), tokenizer.tokenize(document))) for document in documents]
+
+# Ensure words are stemmed
+texts = [list(map(lambda word: stemmer.stem(word), tokenizer.tokenize(document))) for document in documents]
+
 # Ensure words are not stopwords
 texts = [list(filter(notStopWord, document)) for document in texts]
 
@@ -61,7 +67,13 @@ texts = [list(filter(lambda word: len(word) >= 3, document)) for document in tex
 # Ensure word is a real word in english dictionary
 texts = [list(filter(lambda word: word in en_words, document)) for document in texts]
 
+# Remove empty lists from list
+print(len(texts))
+texts = [document for document in texts if document]
+print(len(texts))
+
 print(texts[1:2])
+
 
 # remove words that appear only once
 from collections import defaultdict
@@ -71,7 +83,12 @@ for text in texts:
     for token in text:
         frequency[token] += 1
 
+# Distribution of words and frequencies
+for k, v in sorted(frequency.items(), key=lambda x: x[1]):
+    print(k, v)
+
 texts = [[token for token in text if frequency[token] > 1] for text in texts]
+
 
 from pprint import pprint  # pretty-printer
 
@@ -108,8 +125,9 @@ lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=ntopics)  # i
 corpus_lsi = lsi[corpus_tfidf]  # create a double wrapper over the original corpus: bow->tfidf->fold-in-lsi
 
 print("Latent Semantic Indexing")
-for l in lsi.print_topics(ntopics):
-    print(l)
+lsi.print_topics(ntopics)
+# for l in lsi.print_topics(ntopics):
+#     print(l)
 
 # for doc in corpus_lsi:  # both bow->tfidf and tfidf->lsi transformations are actually executed here, on the fly
 #     print(doc)
@@ -117,8 +135,9 @@ for l in lsi.print_topics(ntopics):
 # LDA
 lda_model = models.LdaModel(corpus, id2word=dictionary, num_topics=ntopics)
 
+print("Latent Dirichlet Allocation")
 lda_model.print_topics(ntopics)
 
-print("Latent Dirichlet Allocation")
-for l in lda_model.print_topics(ntopics):
-    print(l)
+
+# for l in lda_model.print_topics(ntopics):
+#     print(l)

@@ -42,6 +42,16 @@ ffmpeg -i "videoplayback.mp4" -vf fps=1/60 -f image2 "video-frame%03d.png"
 1. Brand recognition
 2.
 
+# Word Processing
+
+## Exact matches for rare words
+## I want the song "Mary Moon" to be suggested for "Cary Moon"
+## I want to receive song suggestions based on Topic as well "Carnival", "Love", "Adventure", etc..
+## I want to receive song suggestions based on Mood of the frames in the video. Bright could be happy,
+#  Darker could be sad, etc.
+
+## In slides say
+# 1. This data app has been modularized such that the NLP and NN steps are separate, so we can use one without the other
 
 ## Data Story
 #
