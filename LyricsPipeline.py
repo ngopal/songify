@@ -59,6 +59,10 @@ class LyricsPipeline:
         self.pdf = self.load_from_SQL()
         self.text_cleaning()
 
+        # print(list(zip(self.texts,self.artist_ids)))
+        # print(len(self.artist_ids))
+        # sys.exit()
+
         # Stored Variables
         self.colormap = np.array(["#6d8dca", "#69de53", "#723bca", "#c3e14c", "#c84dc9", "#68af4e", "#6e6cd5",
                      "#e3be38", "#4e2d7c", "#5fdfa8", "#d34690", "#3f6d31", "#d44427", "#7fcdd8", "#cb4053", "#5e9981",
@@ -74,9 +78,13 @@ class LyricsPipeline:
         self.resultsOne = self.pipelineOne()
 
         self.resres = self.customPoint(["harry truman"], self.resultsOne)
-        print(self.resres)
 
-        self.classifyTagWords([0,1,2,3], self.resres)
+        for k in self.extractTopSongs(self.resres):
+            print(k)
+
+        # self.plotDF(self.resres)
+
+        # self.classifyTagWords([0,1,2,3], self.resres)
 
         # self.plotbk(self.resres)
 
@@ -97,7 +105,7 @@ class LyricsPipeline:
         all_tables = ["19PgP2QSGPcm6Ve8VhbtpG", "37i9dQZF1DWTJ7xPn4vNaz","37i9dQZF1DX1ewVhAJ17m4","37i9dQZF1DX5bjCEbRU4SJ","37i9dQZF1DXbTxeAdrVG2l","37i9dQZF1DXcBWIGoYBM5M","3vxotOnOGDlZXyzJPLFnm2","49oW3sCI91kB2YGw7hsbBv","4tZSI7b1rnGVMdkGeIbCI4","68bXT1MZWZvLOJc0FZrgf7","6wz8ygUKjoHfbU7tB9djeS","7eHApqa9YVkuO6gELsju2j","spotifyplaylistid", "3nrwJoFbrMKSGeHAxaoYSC", "37i9dQZF1DX1XDyq5cTk95"]
         frames = []
         for p in all_tables:
-            pdf = pd.read_sql_query("SELECT \"lyrics\", \"SpotifyArtistURI\" FROM \"" + p +"\"", DBhelper.engine)
+            pdf = pd.read_sql_query("SELECT \"lyrics\", \"SpotifySongURI\" FROM \"" + p +"\"", DBhelper.engine)
             frames.append(pdf)
         pdf = pd.concat(frames)
         del(frames)
@@ -105,7 +113,7 @@ class LyricsPipeline:
         return(pdf)
 
     def text_cleaning(self):
-        documents =  [(str(l[1]), str(l[2])) for l in self.pdf[["lyrics", "SpotifyArtistURI"]].itertuples()]
+        documents =  [(str(l[1]), str(l[2])) for l in self.pdf[["lyrics", "SpotifySongURI"]].itertuples()]
         stoplist = set('for a of the and to in yeah who don like got want know baby let hey come tell need said way thing cause little look'.split())
 
         # Use NLTK tokenizer to correctly split contracted words
@@ -274,6 +282,15 @@ class LyricsPipeline:
         pipeline["novel"] = np.zeros(sLength)
 
         return pipeline.append(pipi, ignore_index=True)
+
+    def extractClusterAssignment(self, expected_df):
+        clusttemp = int(expected_df.loc[expected_df['novel'] == 1]['cluster'])
+        # I should also prioritize these by euclidian distance
+        return expected_df.loc[expected_df['cluster'] == clusttemp].index
+
+    def extractTopSongs(self, expected_df):
+        rel_ind = self.extractClusterAssignment(expected_df)
+        return ((i,v) for i, v in enumerate(self.artist_ids) if i in rel_ind )
 
     def plotDF(self, expected_df):
         """ Expecting df with x, y, cluster """
