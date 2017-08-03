@@ -25,6 +25,11 @@ from sklearn.datasets.samples_generator import make_blobs
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import NMF, LatentDirichletAllocation
 from sklearn.neighbors import KNeighborsClassifier
+import numpy as np
+import matplotlib.pyplot as plt
+import bokeh.plotting as bp
+from bokeh.models import HoverTool, BoxSelectTool
+from bokeh.plotting import figure, show, output_notebook
 
 import logging
 logging.getLogger("lda").setLevel(logging.INFO)
@@ -55,11 +60,25 @@ class LyricsPipeline:
         self.text_cleaning()
 
         # Stored Variables
+        self.colormap = np.array(["#6d8dca", "#69de53", "#723bca", "#c3e14c", "#c84dc9", "#68af4e", "#6e6cd5",
+                     "#e3be38", "#4e2d7c", "#5fdfa8", "#d34690", "#3f6d31", "#d44427", "#7fcdd8", "#cb4053", "#5e9981",
+                     "#803a62", "#9b9e39", "#c88cca", "#e1c37b", "#34223b", "#bdd8a3", "#6e3326", "#cfbdce", "#d07d3c",
+                     "#52697d", "#7d6d33", "#d27c88", "#36422b", "#b68f79"])
         self.vz = self.tfidf()
         self.cvec = self.countvector()
-        # self.resultsOne = self.pipelineOne()
-        # print(self.resultsOne)
-        print(self.customPoint(["harry truman"]))
+
+        # Building Shared Models
+        self.kmeans = self.kmeans_model.fit(self.vz)
+        self.svd_tfidf = self.svd.fit_transform(self.vz)
+
+        self.resultsOne = self.pipelineOne()
+
+        self.resres = self.customPoint(["harry truman"], self.resultsOne)
+        print(self.resres)
+
+        self.classifyTagWords([0,1,2,3], self.resres)
+
+        # self.plotbk(self.resres)
 
         # self.resultsOne = self.pipelineOne()
         # self.classifyTagWords([1, 2, 3], self.resultsOne)
@@ -159,15 +178,13 @@ class LyricsPipeline:
         # svd_tfidf = self.svd.fit_transform(self.vz)
 
         # Perform K-means on vectorized TFIDF data
-        kmeans = self.kmeans_model.fit(self.vz)
-        kmeans_clusters = kmeans.predict(self.vz)
-        kmeans_distances = kmeans.transform(self.vz)
-        print(kmeans_distances)
+        self.lyrics_tfidfvect_kmeans_clusters = self.kmeans.predict(self.vz)
+        self.lyrics_tfidfvect_kmeans_distances = self.kmeans.transform(self.vz)
 
         # Perform TSNE on Kmeans results for visualization
-        tsne_kmeans = self.tsne_model.fit_transform(kmeans_distances)
-        kmeans_df = pd.DataFrame(tsne_kmeans, columns=['x', 'y'])
-        kmeans_df['cluster'] = kmeans_clusters
+        self.tsne_kmeans = self.tsne_model.fit_transform(self.lyrics_tfidfvect_kmeans_distances)
+        kmeans_df = pd.DataFrame(self.tsne_kmeans, columns=['x', 'y'])
+        kmeans_df['cluster'] = self.lyrics_tfidfvect_kmeans_clusters
 
         return kmeans_df
 
@@ -176,14 +193,14 @@ class LyricsPipeline:
         """ Vectorized TFIDF -> SVD -> DBSCAN -> (for visualization: TSNE)"""
 
         # Perform SVD on vectorized TFIDF data
-        svd_tfidf = self.svd.fit_transform(self.vz)
+        self.svd_tfidf = self.svd.fit_transform(self.vz)
         # Perform TSNE on SVD data
-        tsne_tfidf = self.tsne_model.fit_transform(svd_tfidf)
+        self.tsne_svd_tfidf = self.tsne_model.fit_transform(self.svd_tfidf)
         # Convert TSNE data to data frame (for visualization)
-        tfidf_df = pd.DataFrame(tsne_tfidf, columns=['x', 'y'])
+        tfidf_df = pd.DataFrame(self.tsne_svd_tfidf, columns=['x', 'y'])
 
         # Perform DBSCAN using SVD data
-        X = StandardScaler().fit_transform(svd_tfidf)
+        X = StandardScaler().fit_transform(self.svd_tfidf)
 
         db = self.dbscan.fit(X)
         core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
@@ -224,33 +241,60 @@ class LyricsPipeline:
     def classifyTagWords(self, tag_words, pd_points):
         """ Perform KNN on a dataframe containing XY coordinates and group assignment """
         knn = self.neigh_model.fit(pd_points[["x", "y"]], pd_points[["cluster"]])
-        print(knn.predict(pd_points.loc[1,["x", "y"]]))
-        print(knn.predict_proba(pd_points.loc[1,["x", "y"]]))
+        logging.log(logging.INFO, knn.predict(pd_points.loc[1,["x", "y"]]))
+        logging.log(logging.INFO, knn.predict_proba(pd_points.loc[1,["x", "y"]]))
+        logging.log(logging.INFO, knn.predict(pd_points.loc[pd_points.index[-1],["x", "y"]]))
+        logging.log(logging.INFO, knn.predict_proba(pd_points.loc[pd_points.index[-1],["x", "y"]]))
 
-    def customPoint(self, custom_line):
+
+    def customPoint(self, custom_line, pipeline):
         """ Custom Data vs Pipeline One """
 
         # Turn new tag words into vector
         new_word_vector = self.vectorizer.transform(custom_line)
-        # logging.log(logging.INFO, new_word_vector.toarray())
+        logging.log(logging.INFO, new_word_vector.toarray())
 
-        kmeans = self.kmeans_model.fit(self.vz)
-        kmeans_clusters = kmeans.predict(self.vz)
-        kmeans_distances = kmeans.transform(self.vz)
-        kmeans_new_point = kmeans.predict(new_word_vector)
-        kmeans_distance_new_point = kmeans.transform(new_word_vector)
-        print(kmeans_new_point)
-        print(kmeans_distance_new_point)
+        # Perform TSNE on Kmeans results for visualization
+        kmeans_new_point_cluster_prediction = self.kmeans.predict(new_word_vector)
+        kmeans_distance_new_point = self.kmeans.transform(new_word_vector)
+        logging.log(logging.INFO, kmeans_new_point_cluster_prediction)
+        logging.log(logging.INFO, kmeans_distance_new_point)
 
 
         # Perform TSNE on Kmeans results for visualization
-        tsne_kmeans = self.tsne_model.fit_transform(kmeans_distances)
         tsne_kmeans_new_point = self.tsne_model.fit_transform(kmeans_distance_new_point)
-        print(tsne_kmeans_new_point)
-        kmeans_df = pd.DataFrame(tsne_kmeans, columns=['x', 'y'])
-        kmeans_df['cluster'] = kmeans_clusters
+        logging.log(logging.INFO, tsne_kmeans_new_point)
+        prepipi = [{"x" : tsne_kmeans_new_point[0][0],
+                    "y" : tsne_kmeans_new_point[0][1],
+                    "cluster" : kmeans_new_point_cluster_prediction[0],
+                    "novel" : 1}]
+        pipi = pd.DataFrame().from_dict(prepipi)
+        logging.log(logging.INFO, pipi)
+        sLength = len(pipeline['x'])
+        pipeline["novel"] = np.zeros(sLength)
 
-        return kmeans_df
+        return pipeline.append(pipi, ignore_index=True)
+
+    def plotDF(self, expected_df):
+        """ Expecting df with x, y, cluster """
+
+        markers = np.array(["star", "."])
+
+        plt.scatter(expected_df["x"], expected_df["y"], c = self.colormap[ expected_df["cluster"] ])
+
+        plt.title('Pipeline One')
+        plt.show()
+
+    def plotbk(self, expected_df):
+        output_notebook()
+        plot_tfidf = bp.figure(plot_width=700, plot_height=600, title="tf-idf clustering of the lyrics",
+                               tools="pan,wheel_zoom,box_zoom,reset,hover,previewsave",
+                               x_axis_type=None, y_axis_type=None, min_border=1)
+
+        plot_tfidf.scatter(x='x', y='y', source=expected_df)
+        hover = plot_tfidf.select(dict(type=HoverTool))
+        hover.tooltips={"cluster": "@cluster", "input":"@novel"}
+        show(plot_tfidf)
 
 
 

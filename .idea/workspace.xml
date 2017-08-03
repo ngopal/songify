@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00308797-0c59-47c8-a9c1-c6290d390e2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LyricsPipeline.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py" afterPath="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LyricsPipeline.py" afterPath="$PROJECT_DIR$/LyricsPipeline.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,7 +28,7 @@
       <file leaf-file-name="Spotifyhelper.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Helpers/Spotifyhelper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
+            <state relative-caret-position="435">
               <caret line="64" column="47" lean-forward="false" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -68,10 +66,10 @@
       <file leaf-file-name="LyricsPipeline.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LyricsPipeline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="229" column="37" lean-forward="false" selection-start-line="229" selection-start-column="37" selection-end-line="229" selection-end-column="37" />
+            <state relative-caret-position="1413">
+              <caret line="265" column="56" lean-forward="true" selection-start-line="265" selection-start-column="56" selection-end-line="265" selection-end-column="56" />
               <folding>
-                <marker date="1501717543000" expanded="true" signature="3706:3763" ph="SELECT \&quot;lyr... missing_value" />
+                <marker date="1501725506000" expanded="true" signature="4573:4630" ph="SELECT \&quot;lyr... missing_value" />
               </folding>
             </state>
           </provider>
@@ -189,20 +187,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Helpers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vid2song" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vid2song" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Analysis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -920,12 +904,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500872045873</updated>
-      <workItem from="1500872047389" duration="106050000" />
+      <workItem from="1500872047389" duration="114007000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106050000" />
+    <option name="totallyTimeSpent" value="114007000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="100" y="23" width="1260" height="760" extended-state="0" />
@@ -1174,32 +1158,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Helpers/Spotifyhelper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="64" column="47" lean-forward="false" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DatabasePopulators/spotifyToSQL3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="2" selection-end-line="34" selection-end-column="28" />
           <folding>
             <marker date="1501607639000" expanded="true" signature="783:809" ph="SELECT * FRO... missing_value" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1271,12 +1235,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Helpers/Spotifyhelper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="64" column="47" lean-forward="false" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LyricsPipeline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="229" column="37" lean-forward="false" selection-start-line="229" selection-start-column="37" selection-end-line="229" selection-end-column="37" />
+        <state relative-caret-position="1413">
+          <caret line="265" column="56" lean-forward="true" selection-start-line="265" selection-start-column="56" selection-end-line="265" selection-end-column="56" />
           <folding>
-            <marker date="1501717543000" expanded="true" signature="3706:3763" ph="SELECT \&quot;lyr... missing_value" />
+            <marker date="1501725506000" expanded="true" signature="4573:4630" ph="SELECT \&quot;lyr... missing_value" />
           </folding>
         </state>
       </provider>
