@@ -78,7 +78,9 @@ class LyricsPipeline:
         self.kmeans = self.kmeans_model.fit(self.vz)
         self.svd_tfidf = self.svd.fit_transform(self.vz)
 
-        self.resultsOne = self.pipelineOne()
+        # self.resultsOne = self.pipelineOne()
+        # self.resultsOne = self.pipeline_Kmeans_SVD()
+        self.resultsOne = self.pipeline_SVD_Kmeans()
         self.resres = self.customPoint(["I love you"], self.resultsOne)
 
         for k in self.extractTopSongs(self.resres):
@@ -196,6 +198,45 @@ class LyricsPipeline:
         self.tsne_kmeans = self.tsne_model.fit_transform(self.lyrics_tfidfvect_kmeans_distances)
         kmeans_df = pd.DataFrame(self.tsne_kmeans, columns=['x', 'y'])
         kmeans_df['cluster'] = self.lyrics_tfidfvect_kmeans_clusters
+
+        return kmeans_df
+
+    def pipeline_Kmeans_SVD(self):
+        """ Vectorized TFIDF -> K-Means -> SVD """
+        # Perform SVD on vectorized TFIDF data. svd_tfidf is a term-document matrix
+        # svd_tfidf = self.svd.fit_transform(self.vz)
+        # logging.log(logging.INFO, svd_tfidf)
+
+        # Perform K-means on vectorized TFIDF data
+        self.lyrics_tfidfvect_kmeans_clusters = self.kmeans.predict(self.vz)
+        self.lyrics_tfidfvect_kmeans_distances = self.kmeans.transform(self.vz)
+
+        # Perform SVD on Kmeans results for visualization
+        self.svd_kmeans = self.svd.fit_transform(self.lyrics_tfidfvect_kmeans_distances)
+        logging.log(logging.INFO, self.svd_kmeans)
+        kmeans_df = pd.DataFrame(self.svd_kmeans, columns=['x', 'y'])
+        kmeans_df['cluster'] = self.lyrics_tfidfvect_kmeans_clusters
+
+        return kmeans_df
+
+    def pipeline_SVD_Kmeans(self):
+        """ Vectorized TFIDF -> K-Means -> SVD """
+        # Perform SVD on vectorized TFIDF data. svd_tfidf is a term-document matrix
+        svd_tfidf = self.svd.fit_transform(self.vz)
+        localkmeans = self.kmeans_model.fit(svd_tfidf)
+        logging.log(logging.INFO, svd_tfidf)
+
+        # Perform K-means on vectorized TFIDF data
+        localkmeanslyrics_tfidfvect_kmeans_clusters = localkmeans.predict(svd_tfidf)
+        localkmeanslyrics_tfidfvect_kmeans_distances = localkmeans.transform(svd_tfidf)
+        logging.info("Kmeans Distances:  ")
+        logging.log(logging.INFO, localkmeanslyrics_tfidfvect_kmeans_distances)
+
+        # Perform SVD on Kmeans results for visualization
+        # self.svd_kmeans = self.svd.fit_transform(self.lyrics_tfidfvect_kmeans_distances)
+        # logging.log(logging.INFO, self.svd_kmeans)
+        kmeans_df = pd.DataFrame(localkmeanslyrics_tfidfvect_kmeans_distances, columns=['x', 'y'])
+        kmeans_df['cluster'] = localkmeanslyrics_tfidfvect_kmeans_clusters
 
         return kmeans_df
 
