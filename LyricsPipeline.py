@@ -30,8 +30,11 @@ import matplotlib.pyplot as plt
 import bokeh.plotting as bp
 from bokeh.models import HoverTool, BoxSelectTool
 from bokeh.plotting import figure, show, output_notebook
+import math
 
 import logging
+import coloredlogs
+coloredlogs.install()
 logging.getLogger("lda").setLevel(logging.INFO)
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
@@ -49,7 +52,7 @@ class LyricsPipeline:
         self.lda_model = lda.LDA(n_topics=self.num_topics, n_iter=2000)
         self.tsne_model = TSNE(n_components=2, verbose=1, random_state=0, method='exact')
         self.kmeans_model = MiniBatchKMeans(n_clusters=self.num_clusters, init='k-means++', n_init=1, init_size=1000, batch_size=1000, verbose=False, max_iter=1000)
-        self.svd = TruncatedSVD(n_components=50, random_state=0)
+        self.svd = TruncatedSVD(n_components=2, random_state=0)
         self.dbscan = DBSCAN(eps=0.10, min_samples=5)
         self.nmf_model = NMF(n_components=self.num_topics, random_state=1, alpha=.1, l1_ratio=.5)
         self.neigh_model = KNeighborsClassifier(n_neighbors=3)
@@ -76,8 +79,7 @@ class LyricsPipeline:
         self.svd_tfidf = self.svd.fit_transform(self.vz)
 
         self.resultsOne = self.pipelineOne()
-
-        self.resres = self.customPoint(["harry truman"], self.resultsOne)
+        self.resres = self.customPoint(["I love you"], self.resultsOne)
 
         for k in self.extractTopSongs(self.resres):
             print(k)
@@ -105,7 +107,7 @@ class LyricsPipeline:
         all_tables = ["19PgP2QSGPcm6Ve8VhbtpG", "37i9dQZF1DWTJ7xPn4vNaz","37i9dQZF1DX1ewVhAJ17m4","37i9dQZF1DX5bjCEbRU4SJ","37i9dQZF1DXbTxeAdrVG2l","37i9dQZF1DXcBWIGoYBM5M","3vxotOnOGDlZXyzJPLFnm2","49oW3sCI91kB2YGw7hsbBv","4tZSI7b1rnGVMdkGeIbCI4","68bXT1MZWZvLOJc0FZrgf7","6wz8ygUKjoHfbU7tB9djeS","7eHApqa9YVkuO6gELsju2j","spotifyplaylistid", "3nrwJoFbrMKSGeHAxaoYSC", "37i9dQZF1DX1XDyq5cTk95"]
         frames = []
         for p in all_tables:
-            pdf = pd.read_sql_query("SELECT \"lyrics\", \"SpotifySongURI\" FROM \"" + p +"\"", DBhelper.engine)
+            pdf = pd.read_sql_query("SELECT \"lyrics\", \"commonSongName\" FROM \"" + p +"\"", DBhelper.engine)
             frames.append(pdf)
         pdf = pd.concat(frames)
         del(frames)
@@ -113,7 +115,7 @@ class LyricsPipeline:
         return(pdf)
 
     def text_cleaning(self):
-        documents =  [(str(l[1]), str(l[2])) for l in self.pdf[["lyrics", "SpotifySongURI"]].itertuples()]
+        documents =  [(str(l[1]), str(l[2])) for l in self.pdf[["lyrics", "commonSongName"]].itertuples()]
         stoplist = set('for a of the and to in yeah who don like got want know baby let hey come tell need said way thing cause little look'.split())
 
         # Use NLTK tokenizer to correctly split contracted words
@@ -183,7 +185,8 @@ class LyricsPipeline:
     def pipelineOne(self):
         """ Vectorized TFIDF -> K-Means -> (for visualization: TSNE) """
         # Perform SVD on vectorized TFIDF data. svd_tfidf is a term-document matrix
-        # svd_tfidf = self.svd.fit_transform(self.vz)
+        svd_tfidf = self.svd.fit_transform(self.vz)
+        logging.log(logging.INFO, svd_tfidf)
 
         # Perform K-means on vectorized TFIDF data
         self.lyrics_tfidfvect_kmeans_clusters = self.kmeans.predict(self.vz)
@@ -270,6 +273,7 @@ class LyricsPipeline:
 
 
         # Perform TSNE on Kmeans results for visualization
+        # TODO: CHANGE THIS TO PCA AFTER KMEANS, BUT WILL NEED TO UPDATE PIPELINE AS WELL
         tsne_kmeans_new_point = self.tsne_model.fit_transform(kmeans_distance_new_point)
         logging.log(logging.INFO, tsne_kmeans_new_point)
         prepipi = [{"x" : tsne_kmeans_new_point[0][0],
@@ -284,9 +288,21 @@ class LyricsPipeline:
         return pipeline.append(pipi, ignore_index=True)
 
     def extractClusterAssignment(self, expected_df):
+        """ Returns a list of indexes """
+        # Obtained the cluster group number of the novel point
         clusttemp = int(expected_df.loc[expected_df['novel'] == 1]['cluster'])
-        # I should also prioritize these by euclidian distance
-        return expected_df.loc[expected_df['cluster'] == clusttemp].index
+
+        # List of relevant df indices
+        inds = list(expected_df.loc[expected_df['cluster'] == clusttemp].index)
+
+        # Find top 3 closest points in space
+        df = expected_df.loc[expected_df['cluster'] == clusttemp]
+        #df.to_hdf('foo.h5', 'df') # Run this if I want to save the df
+        df["distance"] = df.apply(lambda x: math.sqrt((df[df["novel"] == 1]["x"] - x["x"])**2 + (df[df["novel"] == 1]["y"] - x["y"])**2), axis=1)
+
+        logging.log(logging.INFO, df.sort_values(["distance"]).head(n=11).tail(n=10).index)
+
+        return df.sort_values(["distance"]).head(n=11).tail(n=10).index
 
     def extractTopSongs(self, expected_df):
         rel_ind = self.extractClusterAssignment(expected_df)
