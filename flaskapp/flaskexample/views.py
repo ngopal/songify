@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, send_from_directory
 from flaskexample import app
 from sqlalchemy import create_engine
 import psycopg2
@@ -105,11 +105,14 @@ def result_page():
 
         Model = DocModel(model_choices[result.getlist('musicdrop')[0]])
         songs = Model.nullModel(words)
-        return render_template("app.html", songs = songs[1:5], keywords=words)
+        return render_template("results.html", songs = songs[1:5], keywords=words, video=vid_file)
 
+@app.route("/video")
+def simple():
+    return send_from_directory('uploads/', "despacito/despacito.mp4")
 
 @app.route("/simple.png")
-def simple():
+def asda():
     import datetime
     from io import BytesIO
     import random

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00308797-0c59-47c8-a9c1-c6290d390e2c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" afterPath="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flaskapp/flaskexample/templates/results.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flaskapp/flaskexample/views.py" afterPath="$PROJECT_DIR$/flaskapp/flaskexample/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,11 +39,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
               <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="111" column="40" lean-forward="false" selection-start-line="111" selection-start-column="40" selection-end-line="111" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#63#0" expanded="true" />
+                <marker date="1501824874000" expanded="true" signature="1142:1180" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="results.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/results.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="88" lean-forward="false" selection-start-line="13" selection-start-column="88" selection-end-line="13" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -169,7 +194,6 @@
         <option value="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL2.py" />
         <option value="$PROJECT_DIR$/flaskapp/flaskexample/__init__.py" />
         <option value="$PROJECT_DIR$/Doxyfile" />
-        <option value="$PROJECT_DIR$/flaskapp/flaskexample/views.py" />
         <option value="$PROJECT_DIR$/NOTES" />
         <option value="$PROJECT_DIR$/LDA.py" />
         <option value="$PROJECT_DIR$/Helpers/Spotifyhelper.py" />
@@ -179,6 +203,8 @@
         <option value="$PROJECT_DIR$/Word2Vec.py" />
         <option value="$PROJECT_DIR$/LyricsPipeline2.py" />
         <option value="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" />
+        <option value="$PROJECT_DIR$/flaskapp/flaskexample/views.py" />
+        <option value="$PROJECT_DIR$/flaskapp/flaskexample/templates/results.html" />
       </list>
     </option>
   </component>
@@ -275,7 +301,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="uploads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vid2song" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vid2song" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flaskapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flaskexample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uploads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conanbeer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -301,9 +353,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/flaskapp/flaskexample/templates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/DatabasePopulators" />
-      <recent name="$PROJECT_DIR$/flaskapp/flaskexample/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Helpers" />
@@ -994,12 +1046,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500872045873</updated>
-      <workItem from="1500872047389" duration="144088000" />
+      <workItem from="1500872047389" duration="146010000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144088000" />
+    <option name="totallyTimeSpent" value="146010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="124" y="23" width="1260" height="760" extended-state="0" />
@@ -1280,17 +1332,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="73" column="48" lean-forward="false" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-            <marker date="1501374278000" expanded="true" signature="1121:1159" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VideoProcessing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-132">
@@ -1389,6 +1430,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="111" column="40" lean-forward="false" selection-start-line="111" selection-start-column="40" selection-end-line="111" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+            <marker date="1501824874000" expanded="true" signature="1142:1180" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="88" lean-forward="false" selection-start-line="13" selection-start-column="88" selection-end-line="13" selection-end-column="88" />
           <folding />
         </state>
       </provider>
