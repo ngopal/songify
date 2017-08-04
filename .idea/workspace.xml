@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00308797-0c59-47c8-a9c1-c6290d390e2c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LyricsPipeline2.py" afterPath="$PROJECT_DIR$/LyricsPipeline2.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,26 +79,28 @@
       <file leaf-file-name="LyricsPipeline2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LyricsPipeline2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="283" column="44" lean-forward="false" selection-start-line="283" selection-start-column="44" selection-end-line="283" selection-end-column="44" />
+            <state relative-caret-position="240">
+              <caret line="102" column="58" lean-forward="false" selection-start-line="102" selection-start-column="58" selection-end-line="102" selection-end-column="58" />
               <folding>
-                <element signature="e#6172#6322#0" expanded="false" />
-                <element signature="e#6359#6449#0" expanded="false" />
-                <element signature="e#6486#7293#0" expanded="false" />
-                <element signature="e#7338#8158#0" expanded="false" />
-                <element signature="e#8203#9332#0" expanded="false" />
-                <element signature="e#12473#13810#0" expanded="false" />
-                <element signature="e#13862#14325#0" expanded="false" />
-                <element signature="e#14362#15341#0" expanded="false" />
-                <element signature="e#15380#15788#0" expanded="false" />
-                <element signature="e#15826#16045#0" expanded="false" />
-                <element signature="e#16121#16315#0" expanded="false" />
-                <element signature="e#16379#16894#0" expanded="false" />
-                <element signature="e#16955#18250#0" expanded="false" />
-                <element signature="e#18313#19102#0" expanded="false" />
-                <element signature="e#19332#19570#0" expanded="false" />
-                <element signature="e#19615#20114#0" expanded="false" />
-                <marker date="1501812120000" expanded="true" signature="20946:21001" ph="SELECT \&quot;lyr... missing_value" />
+                <element signature="e#6304#6454#0" expanded="false" />
+                <element signature="e#6491#6581#0" expanded="false" />
+                <element signature="e#6618#7425#0" expanded="false" />
+                <element signature="e#7470#8290#0" expanded="false" />
+                <element signature="e#8335#9464#0" expanded="false" />
+                <element signature="e#9516#13306#0" expanded="false" />
+                <element signature="e#13353#14690#0" expanded="false" />
+                <element signature="e#14742#15205#0" expanded="false" />
+                <element signature="e#15242#16221#0" expanded="false" />
+                <element signature="e#16260#16668#0" expanded="false" />
+                <element signature="e#16706#16925#0" expanded="false" />
+                <element signature="e#17001#17195#0" expanded="false" />
+                <element signature="e#17259#17774#0" expanded="false" />
+                <element signature="e#17835#19130#0" expanded="false" />
+                <element signature="e#19193#19982#0" expanded="false" />
+                <element signature="e#20036#20167#0" expanded="false" />
+                <element signature="e#20212#20450#0" expanded="false" />
+                <element signature="e#20495#20994#0" expanded="false" />
+                <marker date="1501821803000" expanded="true" signature="21826:21881" ph="SELECT \&quot;lyr... missing_value" />
               </folding>
             </state>
           </provider>
@@ -122,6 +125,7 @@
       <find>svd_tfidf</find>
       <find>kmeans_model</find>
       <find>common</find>
+      <find>artist_ids</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -938,12 +942,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500872045873</updated>
-      <workItem from="1500872047389" duration="138694000" />
+      <workItem from="1500872047389" duration="142550000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138694000" />
+    <option name="totallyTimeSpent" value="142550000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="124" y="23" width="1260" height="760" extended-state="0" />
@@ -1311,26 +1315,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LyricsPipeline2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="283" column="44" lean-forward="false" selection-start-line="283" selection-start-column="44" selection-end-line="283" selection-end-column="44" />
+        <state relative-caret-position="240">
+          <caret line="102" column="58" lean-forward="false" selection-start-line="102" selection-start-column="58" selection-end-line="102" selection-end-column="58" />
           <folding>
-            <element signature="e#6172#6322#0" expanded="false" />
-            <element signature="e#6359#6449#0" expanded="false" />
-            <element signature="e#6486#7293#0" expanded="false" />
-            <element signature="e#7338#8158#0" expanded="false" />
-            <element signature="e#8203#9332#0" expanded="false" />
-            <element signature="e#12473#13810#0" expanded="false" />
-            <element signature="e#13862#14325#0" expanded="false" />
-            <element signature="e#14362#15341#0" expanded="false" />
-            <element signature="e#15380#15788#0" expanded="false" />
-            <element signature="e#15826#16045#0" expanded="false" />
-            <element signature="e#16121#16315#0" expanded="false" />
-            <element signature="e#16379#16894#0" expanded="false" />
-            <element signature="e#16955#18250#0" expanded="false" />
-            <element signature="e#18313#19102#0" expanded="false" />
-            <element signature="e#19332#19570#0" expanded="false" />
-            <element signature="e#19615#20114#0" expanded="false" />
-            <marker date="1501812120000" expanded="true" signature="20946:21001" ph="SELECT \&quot;lyr... missing_value" />
+            <element signature="e#6304#6454#0" expanded="false" />
+            <element signature="e#6491#6581#0" expanded="false" />
+            <element signature="e#6618#7425#0" expanded="false" />
+            <element signature="e#7470#8290#0" expanded="false" />
+            <element signature="e#8335#9464#0" expanded="false" />
+            <element signature="e#9516#13306#0" expanded="false" />
+            <element signature="e#13353#14690#0" expanded="false" />
+            <element signature="e#14742#15205#0" expanded="false" />
+            <element signature="e#15242#16221#0" expanded="false" />
+            <element signature="e#16260#16668#0" expanded="false" />
+            <element signature="e#16706#16925#0" expanded="false" />
+            <element signature="e#17001#17195#0" expanded="false" />
+            <element signature="e#17259#17774#0" expanded="false" />
+            <element signature="e#17835#19130#0" expanded="false" />
+            <element signature="e#19193#19982#0" expanded="false" />
+            <element signature="e#20036#20167#0" expanded="false" />
+            <element signature="e#20212#20450#0" expanded="false" />
+            <element signature="e#20495#20994#0" expanded="false" />
+            <marker date="1501821803000" expanded="true" signature="21826:21881" ph="SELECT \&quot;lyr... missing_value" />
           </folding>
         </state>
       </provider>

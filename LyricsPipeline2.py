@@ -100,8 +100,10 @@ class LyricsPipeline:
 
         # Run Pipeline that does LDA
         # resultsThree contains: Topic_dim1, Topic_dim2,...
-        self.resultsThree = self.pipeline_LDA()
+        self.resultsThree = self.pipeline_LDA(["I love you"])
         logging.log(logging.INFO, self.resultsThree)
+        for k,j in ((i,v) for i, v in enumerate(self.artist_ids) if i in self.resultsThree ):
+            print(k, j)
         # TODO
         # I need to (1) run transform to figure out which topic (column) my new data point is part of,
         # then (2) get all of the rows for which that column is the max column, (3) then figure out which N
@@ -224,7 +226,7 @@ class LyricsPipeline:
 
         return tfidf_df
 
-    def pipeline_LDA(self):
+    def pipeline_LDA(self, new_sentence):
         """ Vectorized TFIDF -> LDA """
         from sklearn.decomposition import LatentDirichletAllocation
 
@@ -250,7 +252,7 @@ class LyricsPipeline:
         #
 
         # Example of how to call LDA model on new data
-        new_word = self.cvectorizer.transform(["I love you"])
+        new_word = self.cvectorizer.transform(new_sentence)
         new_vector = lda_model.transform(new_word)
         logging.info("NEW WORD:")
         logging.log(logging.INFO, new_vector)
@@ -290,6 +292,7 @@ class LyricsPipeline:
         # Find the top N closest songs
         # Obtained the cluster group number of the novel point
         clusttemp = int(lda_df.loc[lda_df['novel'] == 1]['cluster'])
+        novel_ind = lda_df.loc[lda_df['novel'] == 1].index
         logging.log(logging.INFO, clusttemp)
 
         # List of relevant df indices
@@ -301,7 +304,19 @@ class LyricsPipeline:
         df = lda_df.iloc[inds,:]
         logging.log(logging.INFO, df)
 
-        return
+        # Data Row to compare everything with
+        logging.log(logging.INFO, df.loc[novel_ind,])
+
+        vals = df.loc[novel_ind,].drop(["cluster", "novel"], axis=1).values.squeeze()
+
+        # This works: ((df.apply(lambda x: x.drop(["cluster", "novel"]), axis=1) - vals)**2).apply(sum, axis=1)
+        df['distance'] = ((df.apply(lambda x: x.drop(["cluster", "novel"]), axis=1) - vals)**2).apply(sum, axis=1).apply(lambda x: x**0.5)
+
+        logging.log(logging.INFO, df.sort_values(["distance"]).head(n=11).tail(n=10).index)
+        logging.log(logging.INFO, df.sort_values(["distance"]).head(n=11).tail(n=10))
+
+        return df.sort_values(["distance"]).head(n=11).tail(n=10).index
+
 
 
     def pipeline_LDA_Kmeans(self):
