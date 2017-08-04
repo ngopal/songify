@@ -7,6 +7,10 @@ import sys, os
 sys.path.append('/Users/nikhilgopal/Documents/Insight/vid2song/')
 from Models import DocModel
 from VideoProcessing import VideoProc
+import logging
+import coloredlogs
+coloredlogs.install()
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 UPLOAD_FOLDER = './flaskapp/flaskexample/uploads/'
 ALLOWED_EXTENSIONS = set(['.mp4'])
@@ -104,10 +108,14 @@ def result_page():
                 words = video_words_cache[vid_file]
 
         Model = DocModel(model_choices[result.getlist('musicdrop')[0]])
-        songs = Model.nullModel(words)
-        spotify_track_url = "https://open.spotify.com/embed?uri=spotify:track:7LFer4drCtWSyD8oxORZtC"
+        modelResults = Model.nullModel(words)
+        songs = modelResults['songs']
+        uris = modelResults["uris"]
+        # spotify_track_url = "https://open.spotify.com/embed?uri=spotify:track:7LFer4drCtWSyD8oxORZtC&theme=white"
+        logging.log(logging.INFO, songs)
+        spotify_track_url = "https://open.spotify.com/embed?uri="+uris[0][0]+"&theme=white"
         video_name = files[f].filename.split(".")[0]+'/'+files[f].filename.split(".")[0]+".mp4"
-        return render_template("results.html", songs = songs[1:5], keywords=words, spotify_track_url=spotify_track_url, video_name=video_name)
+        return render_template("results.html", songs = songs[0:4], keywords=words, spotify_track_url=spotify_track_url, video_name=video_name)
 
 @app.route("/video/<path:path>")
 def simpler(path):
