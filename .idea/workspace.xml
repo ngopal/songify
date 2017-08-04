@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00308797-0c59-47c8-a9c1-c6290d390e2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LyricsPipeline2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Word2Vec.py" afterPath="$PROJECT_DIR$/Word2Vec.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LyricsPipeline2.py" afterPath="$PROJECT_DIR$/LyricsPipeline2.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,27 +78,26 @@
       <file leaf-file-name="LyricsPipeline2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LyricsPipeline2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="254" column="33" lean-forward="true" selection-start-line="254" selection-start-column="33" selection-end-line="254" selection-end-column="33" />
+            <state relative-caret-position="297">
+              <caret line="283" column="44" lean-forward="false" selection-start-line="283" selection-start-column="44" selection-end-line="283" selection-end-column="44" />
               <folding>
                 <element signature="e#6172#6322#0" expanded="false" />
                 <element signature="e#6359#6449#0" expanded="false" />
                 <element signature="e#6486#7293#0" expanded="false" />
                 <element signature="e#7338#8158#0" expanded="false" />
                 <element signature="e#8203#9332#0" expanded="false" />
-                <element signature="e#11834#13171#0" expanded="false" />
-                <element signature="e#13223#13686#0" expanded="false" />
-                <element signature="e#13723#14702#0" expanded="false" />
-                <element signature="e#14741#15149#0" expanded="false" />
-                <element signature="e#15187#15406#0" expanded="false" />
-                <element signature="e#15482#15676#0" expanded="false" />
-                <element signature="e#15740#16255#0" expanded="false" />
-                <element signature="e#16316#17611#0" expanded="false" />
-                <element signature="e#17674#18463#0" expanded="false" />
-                <element signature="e#18517#18648#0" expanded="false" />
-                <element signature="e#18693#18931#0" expanded="false" />
-                <element signature="e#18976#19475#0" expanded="false" />
-                <marker date="1501811187000" expanded="true" signature="20307:20362" ph="SELECT \&quot;lyr... missing_value" />
+                <element signature="e#12473#13810#0" expanded="false" />
+                <element signature="e#13862#14325#0" expanded="false" />
+                <element signature="e#14362#15341#0" expanded="false" />
+                <element signature="e#15380#15788#0" expanded="false" />
+                <element signature="e#15826#16045#0" expanded="false" />
+                <element signature="e#16121#16315#0" expanded="false" />
+                <element signature="e#16379#16894#0" expanded="false" />
+                <element signature="e#16955#18250#0" expanded="false" />
+                <element signature="e#18313#19102#0" expanded="false" />
+                <element signature="e#19332#19570#0" expanded="false" />
+                <element signature="e#19615#20114#0" expanded="false" />
+                <marker date="1501812120000" expanded="true" signature="20946:21001" ph="SELECT \&quot;lyr... missing_value" />
               </folding>
             </state>
           </provider>
@@ -941,12 +938,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500872045873</updated>
-      <workItem from="1500872047389" duration="137797000" />
+      <workItem from="1500872047389" duration="138694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137797000" />
+    <option name="totallyTimeSpent" value="138694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="124" y="23" width="1260" height="760" extended-state="0" />
@@ -1314,27 +1311,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LyricsPipeline2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="254" column="33" lean-forward="true" selection-start-line="254" selection-start-column="33" selection-end-line="254" selection-end-column="33" />
+        <state relative-caret-position="297">
+          <caret line="283" column="44" lean-forward="false" selection-start-line="283" selection-start-column="44" selection-end-line="283" selection-end-column="44" />
           <folding>
             <element signature="e#6172#6322#0" expanded="false" />
             <element signature="e#6359#6449#0" expanded="false" />
             <element signature="e#6486#7293#0" expanded="false" />
             <element signature="e#7338#8158#0" expanded="false" />
             <element signature="e#8203#9332#0" expanded="false" />
-            <element signature="e#11834#13171#0" expanded="false" />
-            <element signature="e#13223#13686#0" expanded="false" />
-            <element signature="e#13723#14702#0" expanded="false" />
-            <element signature="e#14741#15149#0" expanded="false" />
-            <element signature="e#15187#15406#0" expanded="false" />
-            <element signature="e#15482#15676#0" expanded="false" />
-            <element signature="e#15740#16255#0" expanded="false" />
-            <element signature="e#16316#17611#0" expanded="false" />
-            <element signature="e#17674#18463#0" expanded="false" />
-            <element signature="e#18517#18648#0" expanded="false" />
-            <element signature="e#18693#18931#0" expanded="false" />
-            <element signature="e#18976#19475#0" expanded="false" />
-            <marker date="1501811187000" expanded="true" signature="20307:20362" ph="SELECT \&quot;lyr... missing_value" />
+            <element signature="e#12473#13810#0" expanded="false" />
+            <element signature="e#13862#14325#0" expanded="false" />
+            <element signature="e#14362#15341#0" expanded="false" />
+            <element signature="e#15380#15788#0" expanded="false" />
+            <element signature="e#15826#16045#0" expanded="false" />
+            <element signature="e#16121#16315#0" expanded="false" />
+            <element signature="e#16379#16894#0" expanded="false" />
+            <element signature="e#16955#18250#0" expanded="false" />
+            <element signature="e#18313#19102#0" expanded="false" />
+            <element signature="e#19332#19570#0" expanded="false" />
+            <element signature="e#19615#20114#0" expanded="false" />
+            <marker date="1501812120000" expanded="true" signature="20946:21001" ph="SELECT \&quot;lyr... missing_value" />
           </folding>
         </state>
       </provider>

@@ -281,10 +281,25 @@ class LyricsPipeline:
         # Assign cluster column
         # lda_df contains Topic_dim1, Topic_Dim2, etc...
         logging.log(logging.INFO, lda_df)
-        groupings = lda_df.apply(lambda l: np.asarray(l).argmax(), axis=1)
+        groupings = lda_df.apply(lambda l: 0 if np.asarray(l).argmax()-1 < 0 else np.asarray(l).argmax()-1, axis=1)
         logging.log(logging.INFO, groupings)
         lda_df['cluster'] = groupings
         logging.log(logging.INFO, lda_df)
+        # lda_df now has # Topic Dim, novel, and cluster
+
+        # Find the top N closest songs
+        # Obtained the cluster group number of the novel point
+        clusttemp = int(lda_df.loc[lda_df['novel'] == 1]['cluster'])
+        logging.log(logging.INFO, clusttemp)
+
+        # List of relevant df indices
+        inds = list(lda_df.loc[lda_df['cluster'] == clusttemp].index)
+        logging.log(logging.INFO, inds)
+
+        # Find top 3 closest points in space
+        # df = lda_df.loc[lda_df['cluster'] == clusttemp]
+        df = lda_df.iloc[inds,:]
+        logging.log(logging.INFO, df)
 
         return
 
