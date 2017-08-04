@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00308797-0c59-47c8-a9c1-c6290d390e2c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LyricsPipeline2.py" afterPath="$PROJECT_DIR$/LyricsPipeline2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" afterPath="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,8 +40,8 @@
       <file leaf-file-name="app.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            <state relative-caret-position="450">
+              <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -51,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/LDA.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+              <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
               <folding>
                 <marker date="1501534251000" expanded="true" signature="875:891" ph="SELECT * FRO... " />
                 <marker date="1501534251000" expanded="true" signature="875:901" ph="SELECT * FRO... missing_value" />
@@ -77,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/LyricsPipeline.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1941">
-              <caret line="224" column="43" lean-forward="true" selection-start-line="224" selection-start-column="43" selection-end-line="224" selection-end-column="43" />
+              <caret line="224" column="43" lean-forward="false" selection-start-line="224" selection-start-column="43" selection-end-line="224" selection-end-column="43" />
               <folding>
                 <marker date="1501781295000" expanded="true" signature="4932:4987" ph="SELECT \&quot;lyr... missing_value" />
               </folding>
@@ -168,7 +168,6 @@
         <option value="$PROJECT_DIR$/Analysis/Clustering.py" />
         <option value="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL2.py" />
         <option value="$PROJECT_DIR$/flaskapp/flaskexample/__init__.py" />
-        <option value="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" />
         <option value="$PROJECT_DIR$/Doxyfile" />
         <option value="$PROJECT_DIR$/flaskapp/flaskexample/views.py" />
         <option value="$PROJECT_DIR$/NOTES" />
@@ -179,6 +178,7 @@
         <option value="$PROJECT_DIR$/LyricsPipeline.py" />
         <option value="$PROJECT_DIR$/Word2Vec.py" />
         <option value="$PROJECT_DIR$/LyricsPipeline2.py" />
+        <option value="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" />
       </list>
     </option>
   </component>
@@ -187,6 +187,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/flaskapp/flaskexample/static/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="124" />
@@ -991,12 +994,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500872045873</updated>
-      <workItem from="1500872047389" duration="143348000" />
+      <workItem from="1500872047389" duration="144088000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143348000" />
+    <option name="totallyTimeSpent" value="144088000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="124" y="23" width="1260" height="760" extended-state="0" />
@@ -1260,7 +1263,7 @@
     <entry file="file://$PROJECT_DIR$/LDA.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
           <folding>
             <marker date="1501534251000" expanded="true" signature="875:891" ph="SELECT * FRO... " />
             <marker date="1501534251000" expanded="true" signature="875:901" ph="SELECT * FRO... missing_value" />
@@ -1329,7 +1332,7 @@
     <entry file="file://$PROJECT_DIR$/LyricsPipeline.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1941">
-          <caret line="224" column="43" lean-forward="true" selection-start-line="224" selection-start-column="43" selection-end-line="224" selection-end-column="43" />
+          <caret line="224" column="43" lean-forward="false" selection-start-line="224" selection-start-column="43" selection-end-line="224" selection-end-column="43" />
           <folding>
             <marker date="1501781295000" expanded="true" signature="4932:4987" ph="SELECT \&quot;lyr... missing_value" />
           </folding>
@@ -1384,8 +1387,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        <state relative-caret-position="450">
+          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
           <folding />
         </state>
       </provider>
