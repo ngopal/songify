@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00308797-0c59-47c8-a9c1-c6290d390e2c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LyricsPipeline2.py" afterPath="$PROJECT_DIR$/LyricsPipeline2.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,11 +28,21 @@
       <file leaf-file-name="Spotifyhelper.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Helpers/Spotifyhelper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
+            <state relative-caret-position="393">
               <caret line="64" column="47" lean-forward="false" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,31 +85,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LyricsPipeline2.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LyricsPipeline2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LyricsPipeline2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="102" column="58" lean-forward="false" selection-start-line="102" selection-start-column="58" selection-end-line="102" selection-end-column="58" />
+            <state relative-caret-position="75">
+              <caret line="504" column="38" lean-forward="false" selection-start-line="504" selection-start-column="38" selection-end-line="504" selection-end-column="38" />
               <folding>
-                <element signature="e#6304#6454#0" expanded="false" />
-                <element signature="e#6491#6581#0" expanded="false" />
-                <element signature="e#6618#7425#0" expanded="false" />
-                <element signature="e#7470#8290#0" expanded="false" />
-                <element signature="e#8335#9464#0" expanded="false" />
-                <element signature="e#9516#13306#0" expanded="false" />
-                <element signature="e#13353#14690#0" expanded="false" />
-                <element signature="e#14742#15205#0" expanded="false" />
-                <element signature="e#15242#16221#0" expanded="false" />
-                <element signature="e#16260#16668#0" expanded="false" />
-                <element signature="e#16706#16925#0" expanded="false" />
-                <element signature="e#17001#17195#0" expanded="false" />
-                <element signature="e#17259#17774#0" expanded="false" />
-                <element signature="e#17835#19130#0" expanded="false" />
-                <element signature="e#19193#19982#0" expanded="false" />
-                <element signature="e#20036#20167#0" expanded="false" />
-                <element signature="e#20212#20450#0" expanded="false" />
-                <element signature="e#20495#20994#0" expanded="false" />
-                <marker date="1501821803000" expanded="true" signature="21826:21881" ph="SELECT \&quot;lyr... missing_value" />
+                <element signature="e#6313#6463#0" expanded="false" />
+                <element signature="e#6500#6590#0" expanded="false" />
+                <element signature="e#6627#7434#0" expanded="false" />
+                <element signature="e#7479#8299#0" expanded="false" />
+                <element signature="e#8344#9473#0" expanded="false" />
+                <element signature="e#9525#13315#0" expanded="false" />
+                <element signature="e#13362#14699#0" expanded="false" />
+                <element signature="e#14751#15214#0" expanded="false" />
+                <element signature="e#15251#16230#0" expanded="false" />
+                <element signature="e#16269#16677#0" expanded="false" />
+                <element signature="e#16715#16934#0" expanded="false" />
+                <element signature="e#17010#17204#0" expanded="false" />
+                <element signature="e#17268#17783#0" expanded="false" />
+                <element signature="e#17844#19139#0" expanded="false" />
+                <element signature="e#19202#19991#0" expanded="false" />
+                <element signature="e#20045#20176#0" expanded="false" />
+                <element signature="e#20221#20459#0" expanded="false" />
+                <element signature="e#20504#21003#0" expanded="false" />
+                <marker date="1501822620000" expanded="true" signature="22101:22156" ph="SELECT \&quot;lyr... missing_value" />
               </folding>
             </state>
           </provider>
@@ -223,7 +232,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Helpers" />
+              <option name="myItemId" value="flaskapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vid2song" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vid2song" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flaskapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flaskexample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vid2song" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vid2song" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flaskapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flaskexample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -942,12 +991,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500872045873</updated>
-      <workItem from="1500872047389" duration="142550000" />
+      <workItem from="1500872047389" duration="143348000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142550000" />
+    <option name="totallyTimeSpent" value="143348000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="124" y="23" width="1260" height="760" extended-state="0" />
@@ -1220,14 +1269,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1262,16 +1303,6 @@
         <state relative-caret-position="165">
           <caret line="40" column="22" lean-forward="true" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Helpers/Spotifyhelper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="64" column="47" lean-forward="false" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1315,29 +1346,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LyricsPipeline2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="102" column="58" lean-forward="false" selection-start-line="102" selection-start-column="58" selection-end-line="102" selection-end-column="58" />
+        <state relative-caret-position="75">
+          <caret line="504" column="38" lean-forward="false" selection-start-line="504" selection-start-column="38" selection-end-line="504" selection-end-column="38" />
           <folding>
-            <element signature="e#6304#6454#0" expanded="false" />
-            <element signature="e#6491#6581#0" expanded="false" />
-            <element signature="e#6618#7425#0" expanded="false" />
-            <element signature="e#7470#8290#0" expanded="false" />
-            <element signature="e#8335#9464#0" expanded="false" />
-            <element signature="e#9516#13306#0" expanded="false" />
-            <element signature="e#13353#14690#0" expanded="false" />
-            <element signature="e#14742#15205#0" expanded="false" />
-            <element signature="e#15242#16221#0" expanded="false" />
-            <element signature="e#16260#16668#0" expanded="false" />
-            <element signature="e#16706#16925#0" expanded="false" />
-            <element signature="e#17001#17195#0" expanded="false" />
-            <element signature="e#17259#17774#0" expanded="false" />
-            <element signature="e#17835#19130#0" expanded="false" />
-            <element signature="e#19193#19982#0" expanded="false" />
-            <element signature="e#20036#20167#0" expanded="false" />
-            <element signature="e#20212#20450#0" expanded="false" />
-            <element signature="e#20495#20994#0" expanded="false" />
-            <marker date="1501821803000" expanded="true" signature="21826:21881" ph="SELECT \&quot;lyr... missing_value" />
+            <element signature="e#6313#6463#0" expanded="false" />
+            <element signature="e#6500#6590#0" expanded="false" />
+            <element signature="e#6627#7434#0" expanded="false" />
+            <element signature="e#7479#8299#0" expanded="false" />
+            <element signature="e#8344#9473#0" expanded="false" />
+            <element signature="e#9525#13315#0" expanded="false" />
+            <element signature="e#13362#14699#0" expanded="false" />
+            <element signature="e#14751#15214#0" expanded="false" />
+            <element signature="e#15251#16230#0" expanded="false" />
+            <element signature="e#16269#16677#0" expanded="false" />
+            <element signature="e#16715#16934#0" expanded="false" />
+            <element signature="e#17010#17204#0" expanded="false" />
+            <element signature="e#17268#17783#0" expanded="false" />
+            <element signature="e#17844#19139#0" expanded="false" />
+            <element signature="e#19202#19991#0" expanded="false" />
+            <element signature="e#20045#20176#0" expanded="false" />
+            <element signature="e#20221#20459#0" expanded="false" />
+            <element signature="e#20504#21003#0" expanded="false" />
+            <marker date="1501822620000" expanded="true" signature="22101:22156" ph="SELECT \&quot;lyr... missing_value" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Helpers/Spotifyhelper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="64" column="47" lean-forward="false" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -100,7 +100,7 @@ class LyricsPipeline:
 
         # Run Pipeline that does LDA
         # resultsThree contains: Topic_dim1, Topic_dim2,...
-        self.resultsThree = self.pipeline_LDA(["I love you"])
+        self.resultsThree = self.pipeline_LDA(["ocean boat sea ship"])
         logging.log(logging.INFO, self.resultsThree)
         for k,j in ((i,v) for i, v in enumerate(self.artist_ids) if i in self.resultsThree ):
             print(k, j)
@@ -501,6 +501,7 @@ class LyricsPipeline:
 class LyricsTextProcessing():
     def __init__(self):
         # Do Text Processing
+        self.all_tables = ["19PgP2QSGPcm6Ve8VhbtpG", "37i9dQZF1DWTJ7xPn4vNaz","37i9dQZF1DX1ewVhAJ17m4","37i9dQZF1DX5bjCEbRU4SJ","37i9dQZF1DXbTxeAdrVG2l","37i9dQZF1DXcBWIGoYBM5M","3vxotOnOGDlZXyzJPLFnm2","49oW3sCI91kB2YGw7hsbBv","4tZSI7b1rnGVMdkGeIbCI4","68bXT1MZWZvLOJc0FZrgf7","6wz8ygUKjoHfbU7tB9djeS","7eHApqa9YVkuO6gELsju2j","spotifyplaylistid", "3nrwJoFbrMKSGeHAxaoYSC", "37i9dQZF1DX1XDyq5cTk95"]
         self.pdf = self.load_from_SQL()
         k = self.text_cleaning()
 
@@ -508,10 +509,16 @@ class LyricsTextProcessing():
         self.texts = k['texts']
         self.artist_ids = k['artist_ids']
 
-    def load_from_SQL(self):
+    def load_from_SQL(self, table_choice = None):
         # Load Database
         DBhelper = SQL()
-        all_tables = ["19PgP2QSGPcm6Ve8VhbtpG", "37i9dQZF1DWTJ7xPn4vNaz","37i9dQZF1DX1ewVhAJ17m4","37i9dQZF1DX5bjCEbRU4SJ","37i9dQZF1DXbTxeAdrVG2l","37i9dQZF1DXcBWIGoYBM5M","3vxotOnOGDlZXyzJPLFnm2","49oW3sCI91kB2YGw7hsbBv","4tZSI7b1rnGVMdkGeIbCI4","68bXT1MZWZvLOJc0FZrgf7","6wz8ygUKjoHfbU7tB9djeS","7eHApqa9YVkuO6gELsju2j","spotifyplaylistid", "3nrwJoFbrMKSGeHAxaoYSC", "37i9dQZF1DX1XDyq5cTk95"]
+        if table_choice:
+            if isinstance(table_choice, (list, tuple)):
+                all_tables = table_choice
+            else:
+                all_tables = [table_choice]
+        else:
+            all_tables = self.all_tables
         frames = []
         for p in all_tables:
             pdf = pd.read_sql_query("SELECT \"lyrics\", \"commonSongName\" FROM \"" + p +"\"", DBhelper.engine)
