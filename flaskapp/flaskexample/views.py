@@ -105,7 +105,13 @@ def result_page():
 
         Model = DocModel(model_choices[result.getlist('musicdrop')[0]])
         songs = Model.nullModel(words)
-        return render_template("results.html", songs = songs[1:5], keywords=words, video=vid_file)
+        spotify_track_url = "https://open.spotify.com/embed?uri=spotify:track:7LFer4drCtWSyD8oxORZtC"
+        video_name = files[f].filename.split(".")[0]+'/'+files[f].filename.split(".")[0]+".mp4"
+        return render_template("results.html", songs = songs[1:5], keywords=words, spotify_track_url=spotify_track_url, video_name=video_name)
+
+@app.route("/video/<path:path>")
+def simpler(path):
+    return send_from_directory('uploads/', path)
 
 @app.route("/video")
 def simple():

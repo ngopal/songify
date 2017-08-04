@@ -7,12 +7,12 @@
     <h2>Upload Video</h2>
     <input type="file" name="file"><br><br>
     <video width="320" height="240" controls autoplay muted>
-        <source src="/video" type="video/mp4">
+        <!--<source src="/video" type="video/mp4">-->
+        <source src="/video/{{video_name}}" type="video/mp4">
         <!--<source src="movie.ogg" type="video/ogg">-->
         Your browser does not support the video tag.
     </video>
-    <iframe src="https://open.spotify.com/embed?uri=spotify:track:7LFer4drCtWSyD8oxORZtC"
-            frameborder="0" allowtransparency="true"></iframe>
+    <iframe src={{spotify_track_url}} frameborder="0" allowtransparency="true"></iframe>
     <h2>Select Spotify Playlist</h2>
     <select name="musicdrop">
         <option value="80s">80s Smash Hits</option>
