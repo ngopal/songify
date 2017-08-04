@@ -13,6 +13,9 @@ class W2VModel:
     def processSentence(self, sentence):
         return list(filter(lambda x: x in self.model.vocab, sentence))
 
+    def similarity(self, sent1, sent2):
+        return self.model.n_similarity(self.processSentence(sent1.split(' ')), self.processSentence(sent2.split(' ')))
+
     def test(self):
         sent1 = "hello this is nikhil"
         sent2 = "hello this is not nikhil"

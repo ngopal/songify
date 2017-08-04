@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00308797-0c59-47c8-a9c1-c6290d390e2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Word2Vec.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LyricsPipeline2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LyricsPipeline.py" afterPath="$PROJECT_DIR$/LyricsPipeline.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Word2Vec.py" afterPath="$PROJECT_DIR$/Word2Vec.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -68,7 +68,7 @@
       <file leaf-file-name="LyricsPipeline.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LyricsPipeline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1554">
+            <state relative-caret-position="1941">
               <caret line="224" column="43" lean-forward="true" selection-start-line="224" selection-start-column="43" selection-end-line="224" selection-end-column="43" />
               <folding>
                 <marker date="1501781295000" expanded="true" signature="4932:4987" ph="SELECT \&quot;lyr... missing_value" />
@@ -77,12 +77,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Word2Vec.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Word2Vec.py">
+      <file leaf-file-name="LyricsPipeline2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LyricsPipeline2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-              <folding />
+            <state relative-caret-position="322">
+              <caret line="254" column="33" lean-forward="true" selection-start-line="254" selection-start-column="33" selection-end-line="254" selection-end-column="33" />
+              <folding>
+                <element signature="e#6172#6322#0" expanded="false" />
+                <element signature="e#6359#6449#0" expanded="false" />
+                <element signature="e#6486#7293#0" expanded="false" />
+                <element signature="e#7338#8158#0" expanded="false" />
+                <element signature="e#8203#9332#0" expanded="false" />
+                <element signature="e#11834#13171#0" expanded="false" />
+                <element signature="e#13223#13686#0" expanded="false" />
+                <element signature="e#13723#14702#0" expanded="false" />
+                <element signature="e#14741#15149#0" expanded="false" />
+                <element signature="e#15187#15406#0" expanded="false" />
+                <element signature="e#15482#15676#0" expanded="false" />
+                <element signature="e#15740#16255#0" expanded="false" />
+                <element signature="e#16316#17611#0" expanded="false" />
+                <element signature="e#17674#18463#0" expanded="false" />
+                <element signature="e#18517#18648#0" expanded="false" />
+                <element signature="e#18693#18931#0" expanded="false" />
+                <element signature="e#18976#19475#0" expanded="false" />
+                <marker date="1501811187000" expanded="true" signature="20307:20362" ph="SELECT \&quot;lyr... missing_value" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,6 +124,7 @@
       <find>nmf</find>
       <find>svd_tfidf</find>
       <find>kmeans_model</find>
+      <find>common</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -148,6 +168,7 @@
         <option value="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py" />
         <option value="$PROJECT_DIR$/LyricsPipeline.py" />
         <option value="$PROJECT_DIR$/Word2Vec.py" />
+        <option value="$PROJECT_DIR$/LyricsPipeline2.py" />
       </list>
     </option>
   </component>
@@ -158,7 +179,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="100" />
+    <option name="x" value="124" />
     <option name="y" value="23" />
     <option name="width" value="1260" />
     <option name="height" value="760" />
@@ -227,6 +248,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/DatabasePopulators" />
       <recent name="$PROJECT_DIR$/flaskapp/flaskexample/templates" />
     </key>
@@ -919,15 +941,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500872045873</updated>
-      <workItem from="1500872047389" duration="123890000" />
+      <workItem from="1500872047389" duration="137797000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123890000" />
+    <option name="totallyTimeSpent" value="137797000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="100" y="23" width="1260" height="760" extended-state="0" />
+    <frame x="124" y="23" width="1260" height="760" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -970,7 +992,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -1272,7 +1296,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LyricsPipeline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1554">
+        <state relative-caret-position="1941">
           <caret line="224" column="43" lean-forward="true" selection-start-line="224" selection-start-column="43" selection-end-line="224" selection-end-column="43" />
           <folding>
             <marker date="1501781295000" expanded="true" signature="4932:4987" ph="SELECT \&quot;lyr... missing_value" />
@@ -1282,9 +1306,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Word2Vec.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+        <state relative-caret-position="240">
+          <caret line="16" column="15" lean-forward="false" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LyricsPipeline2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="254" column="33" lean-forward="true" selection-start-line="254" selection-start-column="33" selection-end-line="254" selection-end-column="33" />
+          <folding>
+            <element signature="e#6172#6322#0" expanded="false" />
+            <element signature="e#6359#6449#0" expanded="false" />
+            <element signature="e#6486#7293#0" expanded="false" />
+            <element signature="e#7338#8158#0" expanded="false" />
+            <element signature="e#8203#9332#0" expanded="false" />
+            <element signature="e#11834#13171#0" expanded="false" />
+            <element signature="e#13223#13686#0" expanded="false" />
+            <element signature="e#13723#14702#0" expanded="false" />
+            <element signature="e#14741#15149#0" expanded="false" />
+            <element signature="e#15187#15406#0" expanded="false" />
+            <element signature="e#15482#15676#0" expanded="false" />
+            <element signature="e#15740#16255#0" expanded="false" />
+            <element signature="e#16316#17611#0" expanded="false" />
+            <element signature="e#17674#18463#0" expanded="false" />
+            <element signature="e#18517#18648#0" expanded="false" />
+            <element signature="e#18693#18931#0" expanded="false" />
+            <element signature="e#18976#19475#0" expanded="false" />
+            <marker date="1501811187000" expanded="true" signature="20307:20362" ph="SELECT \&quot;lyr... missing_value" />
+          </folding>
         </state>
       </provider>
     </entry>
