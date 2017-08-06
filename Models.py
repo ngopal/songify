@@ -6,7 +6,7 @@ from Helpers.SQLhelper import SQL
 
 
 class DocModel:
-    """A simple document model using cosine similarity"""
+    """A simple document model using word vectors and cosine similarity"""
     def __init__(self, pl_name):
         self.pl_name = pl_name
         self.helper = SQL()
@@ -34,6 +34,7 @@ class DocModel:
         results = {}
         results_names = {}
 
+        # Populate results and results_name dictionaries with track URI or song name as keys, and cosine score as values
         for i,d in enumerate(doc_models):
             simScore = inModel.similarity(d["model"])
             results_names[d["song"]] = simScore

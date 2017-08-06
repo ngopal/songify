@@ -22,6 +22,7 @@ class VideoProc:
         self.graph = tf.get_default_graph()
 
     def analyzeImagesInDir(self, dir):
+        """ Analyze images in a given directory, and return a list of tag words from NN """
         # analyze images in directory specified by sys.argv[1]
         loaded_images = [(i, utils.load_image(dir+os.sep+i)) for i in os.listdir(dir)]
         cumulative_description_words = []
@@ -47,6 +48,9 @@ class VideoProc:
         return cumulative_description_words
 
     def downSampleVideo(self,videoloc,outdir,frames):
+        """ Expecting input of video location, output directory, and frame rate
+            Expecting function to return None
+        """
         command = 'ffmpeg -i "'+videoloc+'" -vf fps=1/'+str(frames)+' -f image2 "'+outdir+os.sep+'video-frame%03d.png"'
         call([command], shell=True)
         return
