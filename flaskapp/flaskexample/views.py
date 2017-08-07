@@ -59,6 +59,7 @@ def app_page():
 @app.route('/result', methods = ['POST'])
 def result_page():
     model_choices = {
+        "validation" : "5LCI3ja6TCrmoQDLZ2FYem",
         "80s" : "19PgP2QSGPcm6Ve8VhbtpG",
         "90s" : "6wz8ygUKjoHfbU7tB9djeS",
         "insight" : "spotifyplaylistid",
@@ -96,23 +97,32 @@ def result_page():
                     files[f].save(os.path.join(vid_dir, files[f].filename))
 
                 # Downsample video frames into images
-                VP = VideoProc()
-                VP.downSampleVideo(vid_file, frames_dir, 60)
-
-                # Run pre-trained NN on images
-                words = VP.analyzeImagesInDir(frames_dir)
-
-                # Cache
-                video_words_cache[vid_file] = words
+                # VP = VideoProc()
+                # VP.downSampleVideo(vid_file, frames_dir, 60)
+                #
+                # # Run pre-trained NN on images
+                # words = VP.analyzeImagesInDir(frames_dir)
+                #
+                # # Cache
+                # video_words_cache[vid_file] = words
             else:
                 words = video_words_cache[vid_file]
 
         Model = DocModel(model_choices[result.getlist('musicdrop')[0]])
+        ####### DEBUGGING AND VALIDATION PURPOSE
+        #
+        words = ['car']
+        #
+        ###################
         modelResults = Model.nullModel(words)
         songs = modelResults['songs']
         uris = modelResults["uris"]
         # spotify_track_url = "https://open.spotify.com/embed?uri=spotify:track:7LFer4drCtWSyD8oxORZtC&theme=white"
         logging.log(logging.INFO, songs)
+        ## for debug
+        for song, score in songs:
+            print(song, '\t', score)
+        ##
         spotify_track_url = "https://open.spotify.com/embed?uri="+uris[0][0]+"&theme=white"
         video_name = files[f].filename.split(".")[0]+'/'+files[f].filename.split(".")[0]+".mp4"
         return render_template("results.html", songs = songs[0:4], keywords=words, spotify_track_url=spotify_track_url, video_name=video_name)

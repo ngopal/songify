@@ -117,7 +117,8 @@ class SpotifyHelper:
         """ Randomly select n_songs from my 'muzic' playlist
             Returns a list of spotify TrackURIs
         """
-        playlist_source = "spotify:user:acesamped:playlist:7eHApqa9YVkuO6gELsju2j"
+        # playlist_source = "spotify:user:acesamped:playlist:7eHApqa9YVkuO6gELsju2j"
+        playlist_source = "spotify:user:myplay.com:playlist:19PgP2QSGPcm6Ve8VhbtpG"
         track_generator = self.get_tracks_without_lyrics(playlist_source)
         # random selection without replacement
         # reuse get_tracks_from_playlist function, but randomly select numbers from 0 to len(tracks)
@@ -130,7 +131,8 @@ class SpotifyHelper:
 
         for index, track in enumerate(songs):
             if index in indx:
-                print(index, track)
+                # print(index, track)
+                print(track['commonArtistName'], '\t', track['commonSongName'])
             else:
                 pass
 
@@ -145,4 +147,4 @@ if __name__ == "__main__":
     # for k in kit:
     #     print(k)
     # SPhelper.clear_web_playlist()
-    SPhelper.randomly_select_n_songs(5)
+    SPhelper.randomly_select_n_songs(20)
