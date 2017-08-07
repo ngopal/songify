@@ -66,6 +66,12 @@ def result_page():
         "muzic" : "7eHApqa9YVkuO6gELsju2j",
         "megan" : "4tZSI7b1rnGVMdkGeIbCI4"
     }
+    # algo_choice = {
+    #     "wordvec" : None,
+    #     "lda" : None,
+    #     "keamns-svd" : None,
+    #     "svd-kmeans" : None
+    # }
     if request.method == 'POST':
         result = request.form
         files = request.files
@@ -108,20 +114,43 @@ def result_page():
             else:
                 words = video_words_cache[vid_file]
 
+        # Model = DocModel(model_choices[result.getlist('musicdrop')[0]])
+        print("TABLE CHOICE", "\""+model_choices[result.getlist('musicdrop')[0]]+"\"")
         Model = DocModel(model_choices[result.getlist('musicdrop')[0]])
         ####### DEBUGGING AND VALIDATION PURPOSE
         #
         words = ['car']
         #
         ###################
-        modelResults = Model.nullModel(words)
+
+        # modelResults contains a dictionary with keys "uris" and "songs", each of which contains a sorted list
+        # nullModel function takes a list of words as input
+        algo_choice = result.getlist('algorithm')[0]
+        if algo_choice == "wordvec":
+            print("Running Word2Vec")
+            modelResults = Model.nullModel(words)
+        elif algo_choice == "kmeans-svd":
+            print("Running Kmeans -> SVD")
+            modelResults = Model.kmeans_svd(words)
+        elif algo_choice == "svd-kmeans":
+            print("Running SVD -> Kmeans")
+            modelResults = Model.svd_kmeans(words)
+        elif algo_choice == "lda":
+            print("Running LDA")
+            modelResults = Model.lda(words)
+        else:
+            print("Running Word2Vec")
+            modelResults = Model.nullModel(words)
+
         songs = modelResults['songs']
         uris = modelResults["uris"]
         # spotify_track_url = "https://open.spotify.com/embed?uri=spotify:track:7LFer4drCtWSyD8oxORZtC&theme=white"
         logging.log(logging.INFO, songs)
         ## for debug
-        for song, score in songs:
-            print(song, '\t', score)
+        # for song, score in songs:
+        #     print(song, '\t', score)
+        for i, v in enumerate(songs):
+            print(v)
         ##
         spotify_track_url = "https://open.spotify.com/embed?uri="+uris[0][0]+"&theme=white"
         video_name = files[f].filename.split(".")[0]+'/'+files[f].filename.split(".")[0]+".mp4"

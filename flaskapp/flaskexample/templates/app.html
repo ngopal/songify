@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Vid2Song</title>
+    <title>Songify</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Songify</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home</a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        </div>
+    </div>
+</nav>
+
 <center>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">Songify</h1>
+        <p class="lead">Gimmie a video. Gimmie a playlist. Find the right song for your video.</p>
+    </div>
+</div>
+
 <form action="/result" method="post" enctype = "multipart/form-data">
     <h2>Upload Video</h2>
     <input type="file" name="file"><br><br>
@@ -16,6 +42,13 @@
         <option value="insight">Insight Test Set</option>
         <option value="muzic">Muzic</option>
         <option value="megan">Megan</option>
+    </select>
+    <h2>Select Algorithm</h2>
+    <select name="algorithm">
+        <option value="wordvec">Word2Vec</option>
+        <option value="kmeans-svd">K-means -> SVD</option>
+        <option value="svd-kmeans">SVD -> K-means</option>
+        <option value="lda">LDA</option>
     </select>
     <br><br>
     <input type="submit">
@@ -29,9 +62,7 @@
 </ul>
 <h3>Keywords from images</h3>
 {{keywords}}
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<link href="static/css/bootstrap.min.css" rel="stylesheet">
+
 </center>
 </body>
 </html>

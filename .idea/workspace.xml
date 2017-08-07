@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00308797-0c59-47c8-a9c1-c6290d390e2c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py" afterPath="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Helpers/Spotifyhelper.py" afterPath="$PROJECT_DIR$/Helpers/Spotifyhelper.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/LyricsPipeline2.py" afterPath="$PROJECT_DIR$/LyricsPipeline.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models.py" afterPath="$PROJECT_DIR$/Models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" afterPath="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flaskapp/flaskexample/views.py" afterPath="$PROJECT_DIR$/flaskapp/flaskexample/views.py" />
     </list>
@@ -32,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/Helpers/Spotifyhelper.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="828">
-              <caret line="121" column="24" lean-forward="true" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+              <caret line="121" column="24" lean-forward="false" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -43,8 +44,8 @@
       <file leaf-file-name="app.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="49" lean-forward="false" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+            <state relative-caret-position="135">
+              <caret line="29" column="93" lean-forward="false" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -60,14 +61,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="113" column="21" lean-forward="false" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
+            <state relative-caret-position="528">
+              <caret line="152" column="18" lean-forward="false" selection-start-line="152" selection-start-column="18" selection-end-line="152" selection-end-column="18" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
-                <marker date="1502082249000" expanded="true" signature="1290:1328" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
+                <marker date="1502088401000" expanded="true" signature="1290:1328" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
               </folding>
             </state>
           </provider>
@@ -99,41 +100,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LyricsPipeline2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LyricsPipeline2.py">
+      <file leaf-file-name="LyricsPipeline.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LyricsPipeline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="103" column="36" lean-forward="false" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
+            <state relative-caret-position="2520">
+              <caret line="479" column="15" lean-forward="true" selection-start-line="479" selection-start-column="15" selection-end-line="479" selection-end-column="15" />
               <folding>
-                <element signature="e#6313#6463#0" expanded="false" />
-                <element signature="e#6500#6590#0" expanded="false" />
-                <element signature="e#6627#7434#0" expanded="false" />
-                <element signature="e#7479#8299#0" expanded="false" />
-                <element signature="e#8344#9473#0" expanded="false" />
-                <element signature="e#9525#13315#0" expanded="false" />
-                <element signature="e#13362#14699#0" expanded="false" />
-                <element signature="e#14751#15214#0" expanded="false" />
-                <element signature="e#15251#16230#0" expanded="false" />
-                <element signature="e#16269#16677#0" expanded="false" />
-                <element signature="e#16715#16934#0" expanded="false" />
-                <element signature="e#17010#17204#0" expanded="false" />
-                <element signature="e#17268#17783#0" expanded="false" />
-                <element signature="e#17844#19139#0" expanded="false" />
-                <element signature="e#19202#19991#0" expanded="false" />
-                <element signature="e#20045#20176#0" expanded="false" />
-                <element signature="e#20221#20459#0" expanded="false" />
-                <element signature="e#20504#21003#0" expanded="false" />
-                <marker date="1501822620000" expanded="true" signature="22101:22156" ph="SELECT \&quot;lyr... missing_value" />
+                <element signature="e#6421#6571#0" expanded="false" />
+                <element signature="e#6608#6698#0" expanded="false" />
+                <element signature="e#6735#7542#0" expanded="false" />
+                <element signature="e#8452#9581#0" expanded="false" />
+                <element signature="e#9633#13423#0" expanded="false" />
+                <element signature="e#13470#14807#0" expanded="false" />
+                <element signature="e#14859#15322#0" expanded="false" />
+                <element signature="e#15359#16338#0" expanded="false" />
+                <element signature="e#16377#16785#0" expanded="false" />
+                <element signature="e#16823#17042#0" expanded="false" />
+                <element signature="e#17118#17312#0" expanded="false" />
+                <element signature="e#17376#17891#0" expanded="false" />
+                <element signature="e#17952#19247#0" expanded="false" />
+                <element signature="e#19310#20099#0" expanded="false" />
+                <element signature="e#20426#20664#0" expanded="false" />
+                <element signature="e#20709#21208#0" expanded="false" />
+                <marker date="1502087918000" expanded="true" signature="22391:22446" ph="SELECT \&quot;lyr... missing_value" />
+                <marker date="1502087918000" expanded="true" signature="22503:22578" ph="SELECT \&quot;lyr... missing_value" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="120" lean-forward="false" selection-start-line="36" selection-start-column="120" selection-end-line="36" selection-end-column="120" />
+            <state relative-caret-position="288">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -196,16 +196,16 @@
         <option value="$PROJECT_DIR$/NOTES" />
         <option value="$PROJECT_DIR$/LDA.py" />
         <option value="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL3.py" />
-        <option value="$PROJECT_DIR$/LyricsPipeline.py" />
         <option value="$PROJECT_DIR$/Word2Vec.py" />
         <option value="$PROJECT_DIR$/LyricsPipeline2.py" />
         <option value="$PROJECT_DIR$/flaskapp/flaskexample/templates/results.html" />
         <option value="$PROJECT_DIR$/VideoProcessing.py" />
-        <option value="$PROJECT_DIR$/Models.py" />
         <option value="$PROJECT_DIR$/Helpers/Spotifyhelper.py" />
         <option value="$PROJECT_DIR$/DatabasePopulators/spotifyToSQL.py" />
         <option value="$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html" />
+        <option value="$PROJECT_DIR$/LyricsPipeline.py" />
         <option value="$PROJECT_DIR$/flaskapp/flaskexample/views.py" />
+        <option value="$PROJECT_DIR$/Models.py" />
       </list>
     </option>
   </component>
@@ -1083,12 +1083,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500872045873</updated>
-      <workItem from="1500872047389" duration="159774000" />
+      <workItem from="1500872047389" duration="165571000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159774000" />
+    <option name="totallyTimeSpent" value="165571000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="124" y="23" width="1260" height="760" extended-state="0" />
@@ -1135,7 +1135,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1361,9 +1361,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1941">
           <caret line="224" column="43" lean-forward="false" selection-start-line="224" selection-start-column="43" selection-end-line="224" selection-end-column="43" />
-          <folding>
-            <marker date="1501781295000" expanded="true" signature="4932:4987" ph="SELECT \&quot;lyr... missing_value" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1372,34 +1370,6 @@
         <state relative-caret-position="240">
           <caret line="16" column="15" lean-forward="false" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LyricsPipeline2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="103" column="36" lean-forward="false" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
-          <folding>
-            <element signature="e#6313#6463#0" expanded="false" />
-            <element signature="e#6500#6590#0" expanded="false" />
-            <element signature="e#6627#7434#0" expanded="false" />
-            <element signature="e#7479#8299#0" expanded="false" />
-            <element signature="e#8344#9473#0" expanded="false" />
-            <element signature="e#9525#13315#0" expanded="false" />
-            <element signature="e#13362#14699#0" expanded="false" />
-            <element signature="e#14751#15214#0" expanded="false" />
-            <element signature="e#15251#16230#0" expanded="false" />
-            <element signature="e#16269#16677#0" expanded="false" />
-            <element signature="e#16715#16934#0" expanded="false" />
-            <element signature="e#17010#17204#0" expanded="false" />
-            <element signature="e#17268#17783#0" expanded="false" />
-            <element signature="e#17844#19139#0" expanded="false" />
-            <element signature="e#19202#19991#0" expanded="false" />
-            <element signature="e#20045#20176#0" expanded="false" />
-            <element signature="e#20221#20459#0" expanded="false" />
-            <element signature="e#20504#21003#0" expanded="false" />
-            <marker date="1501822620000" expanded="true" signature="22101:22156" ph="SELECT \&quot;lyr... missing_value" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1421,34 +1391,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LDA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding>
-            <marker date="1501534251000" expanded="true" signature="875:891" ph="SELECT * FRO... " />
-            <marker date="1501534251000" expanded="true" signature="875:901" ph="SELECT * FRO... missing_value" />
-            <marker date="1501534251000" expanded="true" signature="875:920" ph="SELECT * FRO... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="120" lean-forward="false" selection-start-line="36" selection-start-column="120" selection-end-line="36" selection-end-column="120" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Helpers/Spotifyhelper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="828">
-          <caret line="121" column="24" lean-forward="true" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+          <caret line="121" column="24" lean-forward="false" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="92" lean-forward="false" selection-start-line="17" selection-start-column="92" selection-end-line="17" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="29" column="93" lean-forward="false" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="152" column="18" lean-forward="false" selection-start-line="152" selection-start-column="18" selection-end-line="152" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+            <marker date="1502088401000" expanded="true" signature="1290:1328" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
           </folding>
         </state>
       </provider>
@@ -1463,29 +1438,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/app.html">
+    <entry file="file://$PROJECT_DIR$/LDA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="49" lean-forward="false" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/templates/results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="92" lean-forward="false" selection-start-line="17" selection-start-column="92" selection-end-line="17" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskapp/flaskexample/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="113" column="21" lean-forward="false" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
+        <state relative-caret-position="135">
+          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
           <folding>
-            <element signature="e#0#63#0" expanded="true" />
-            <marker date="1502082249000" expanded="true" signature="1290:1328" ph="SELECT * FRO... 19PgP2QSGPcm6Ve8VhbtpG" />
+            <marker date="1501534251000" expanded="true" signature="875:891" ph="SELECT * FRO... " />
+            <marker date="1501534251000" expanded="true" signature="875:901" ph="SELECT * FRO... missing_value" />
+            <marker date="1501534251000" expanded="true" signature="875:920" ph="SELECT * FRO... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LyricsPipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2520">
+          <caret line="479" column="15" lean-forward="true" selection-start-line="479" selection-start-column="15" selection-end-line="479" selection-end-column="15" />
+          <folding>
+            <element signature="e#6421#6571#0" expanded="false" />
+            <element signature="e#6608#6698#0" expanded="false" />
+            <element signature="e#6735#7542#0" expanded="false" />
+            <element signature="e#8452#9581#0" expanded="false" />
+            <element signature="e#9633#13423#0" expanded="false" />
+            <element signature="e#13470#14807#0" expanded="false" />
+            <element signature="e#14859#15322#0" expanded="false" />
+            <element signature="e#15359#16338#0" expanded="false" />
+            <element signature="e#16377#16785#0" expanded="false" />
+            <element signature="e#16823#17042#0" expanded="false" />
+            <element signature="e#17118#17312#0" expanded="false" />
+            <element signature="e#17376#17891#0" expanded="false" />
+            <element signature="e#17952#19247#0" expanded="false" />
+            <element signature="e#19310#20099#0" expanded="false" />
+            <element signature="e#20426#20664#0" expanded="false" />
+            <element signature="e#20709#21208#0" expanded="false" />
+            <marker date="1502087918000" expanded="true" signature="22391:22446" ph="SELECT \&quot;lyr... missing_value" />
+            <marker date="1502087918000" expanded="true" signature="22503:22578" ph="SELECT \&quot;lyr... missing_value" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

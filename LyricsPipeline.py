@@ -39,8 +39,9 @@ logging.getLogger("lda").setLevel(logging.INFO)
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 class LyricsPipeline:
-    def __init__(self):
+    def __init__(self, table):
         # Initialize parameters
+        LTP = LyricsTextProcessing(table)
         self.num_clusters = 20
         self.num_topics = self.num_clusters
 
@@ -59,8 +60,13 @@ class LyricsPipeline:
         # self.lda = LatentDirichletAllocation(n_topics=self.num_topics, max_iter=5, learning_method='online', learning_offset=50.,random_state=0)
 
         # Pipeline
-        self.pdf = self.load_from_SQL()
-        self.text_cleaning()
+        self.pdf = LTP.pdf
+        self.artist_ids = LTP.artist_ids
+        self.texts = LTP.texts
+        self.tracks = LTP.track_ids
+        print("PRINTING TRACKS")
+        print(self.tracks)
+
 
         # print(list(zip(self.texts,self.artist_ids)))
         # print(len(self.artist_ids))
@@ -71,20 +77,65 @@ class LyricsPipeline:
                      "#e3be38", "#4e2d7c", "#5fdfa8", "#d34690", "#3f6d31", "#d44427", "#7fcdd8", "#cb4053", "#5e9981",
                      "#803a62", "#9b9e39", "#c88cca", "#e1c37b", "#34223b", "#bdd8a3", "#6e3326", "#cfbdce", "#d07d3c",
                      "#52697d", "#7d6d33", "#d27c88", "#36422b", "#b68f79"])
-        self.vz = self.tfidf()
-        self.cvec = self.countvector()
+        self.tfidf_vector = self.tfidf()
+        self.count_vector = self.countvector()
 
         # Building Shared Models
-        self.kmeans = self.kmeans_model.fit(self.vz)
-        self.svd_tfidf = self.svd.fit_transform(self.vz)
+        self.kmeans = self.kmeans_model.fit(self.tfidf_vector)
+        self.svd_tfidf = self.svd.fit_transform(self.tfidf_vector)
 
-        # self.resultsOne = self.pipelineOne()
+        ##### FINAL RUNS ####
+        # Run Pipeline that does K-means and SVD  (Working)
+        # resultsOne contains: x, y, cluster
         # self.resultsOne = self.pipeline_Kmeans_SVD()
-        self.resultsOne = self.pipeline_SVD_Kmeans()
-        self.resres = self.customPoint(["I love you"], self.resultsOne)
+        # logging.log(logging.INFO, self.resultsOne)
+        # self.resres = self.customPoint(["I love you"], self.resultsOne)
+        # for k in self.extractTopSongs(self.resres):
+        #     print(k)
 
-        for k in self.extractTopSongs(self.resres):
-            print(k)
+        # Run Pipeline that does SVD then Kmeans   (Working)
+        # resultsTwo contains: x, y, cluster
+        # self.resultsTwo = self.pipeline_SVD_Kmeans()
+        # logging.log(logging.INFO, self.resultsTwo)
+        # self.resres = self.customPoint(["I love you"], self.resultsTwo)
+        # for k in self.extractTopSongs(self.resres):
+        #     print(k)
+
+        # Run Pipeline that does LDA
+        # resultsThree contains: Topic_dim1, Topic_dim2,...
+        self.resultsThree = self.pipeline_LDA(["ocean boat sea ship"])
+        logging.log(logging.INFO, self.resultsThree)
+        for k,j in ((i,v) for i, v in enumerate(self.artist_ids) if i in self.resultsThree ):
+            print(k, j)
+        # TODO
+        # I need to (1) run transform to figure out which topic (column) my new data point is part of,
+        # then (2) get all of the rows for which that column is the max column, (3) then figure out which N
+        # songs are the "closest" to the line in question. Then I won't need coords, but will have songs returned
+        #
+        # self.resres = self.customPoint(["I love you"], self.resultsTwo)
+        # for k in self.extractTopSongs(self.resres):
+        #     print(k)
+
+        # Run Pipeline that does LDA and Kmeans
+        # resultsFour contains: Topic_dim1, Topic_dim2,..., cluster
+        # self.resultsFour = self.pipeline_LDA_Kmeans()
+        # logging.log(logging.INFO, self.resultsFour)
+
+
+        # Run random selection pipeline (Working)
+        # self.resultsFive = self.randomSelection(10)
+        # logging.log(logging.INFO, self.resultsFive)
+
+        ####### FINAL RUNS ######
+
+
+
+
+
+
+
+        # for k in self.extractTopSongs(self.resres):
+        #     print(k)
 
         # self.plotDF(self.resres)
 
@@ -103,77 +154,6 @@ class LyricsPipeline:
         # self.display_topics(self.nmf, self.vectorizer, 10)
         # self.display_topics(self.lda_model, self.vectorizer, 10)
 
-    def load_from_SQL(self):
-        # Load Database
-        DBhelper = SQL()
-        all_tables = ["19PgP2QSGPcm6Ve8VhbtpG", "37i9dQZF1DWTJ7xPn4vNaz","37i9dQZF1DX1ewVhAJ17m4","37i9dQZF1DX5bjCEbRU4SJ","37i9dQZF1DXbTxeAdrVG2l","37i9dQZF1DXcBWIGoYBM5M","3vxotOnOGDlZXyzJPLFnm2","49oW3sCI91kB2YGw7hsbBv","4tZSI7b1rnGVMdkGeIbCI4","68bXT1MZWZvLOJc0FZrgf7","6wz8ygUKjoHfbU7tB9djeS","7eHApqa9YVkuO6gELsju2j","spotifyplaylistid", "3nrwJoFbrMKSGeHAxaoYSC", "37i9dQZF1DX1XDyq5cTk95"]
-        frames = []
-        for p in all_tables:
-            pdf = pd.read_sql_query("SELECT \"lyrics\", \"commonSongName\" FROM \"" + p +"\"", DBhelper.engine)
-            frames.append(pdf)
-        pdf = pd.concat(frames)
-        del(frames)
-        pdf = pdf[pdf["lyrics"] != ""]
-        return(pdf)
-
-    def text_cleaning(self):
-        documents =  [(str(l[1]), str(l[2])) for l in self.pdf[["lyrics", "commonSongName"]].itertuples()]
-        stoplist = set('for a of the and to in yeah who don like got want know baby let hey come tell need said way thing cause little look'.split())
-
-        # Use NLTK tokenizer to correctly split contracted words
-        tokenizer = RegexpTokenizer(r'\w+')
-        # Use NLTK stopwords to make sure common words are not being stored in list
-        stopset = set(spacy.en.STOP_WORDS)
-        en_words = set(words.words())
-        stemmer = SnowballStemmer("english")
-
-        def notStopWord(word):
-            if word not in stopset:
-                if word not in stoplist:
-                    return word
-
-        # Ensure words are lowercase
-        texts = [(list(map(lambda word: word.lower(), tokenizer.tokenize(document[0]))), document[1]) for document in documents]
-
-        # Ensure words are in the same tense
-        texts = [(list(map(lambda word: WordNetLemmatizer().lemmatize(word, "v"), tokenizer.tokenize(document[0]))), document[1]) for document in documents]
-
-        # Ensure words are stemmed
-        texts = [(list(map(lambda word: stemmer.stem(word), tokenizer.tokenize(document[0]))), document[1]) for document in documents]
-
-        # Ensure words are not stopwords
-        texts = [(list(filter(notStopWord, document[0])), document[1]) for document in texts]
-
-        # Ensure words are at least 3 characters long
-        texts = [(list(filter(lambda word: len(word) >= 3, document[0])), document[1]) for document in texts]
-
-        # Ensure words with spaces are filtered out
-        texts = [(list(filter(lambda word: ' ' not in word, document[0])), document[1]) for document in texts]
-
-        # Ensure words are unique
-        texts = [(list(set(document[0])), document[1]) for document in texts]
-
-        # Ensure word is a real word in english dictionary
-        texts = [(list(filter(lambda word: word in en_words, document[0])), document[1]) for document in texts]
-
-        # Remove empty lists from list
-        texts = [(document[0], document[1]) for document in texts if document[0]]
-
-        # remove words that appear only once
-        frequency = defaultdict(int)
-        for text in texts:
-            for token in text[0]:
-                frequency[token] += 1
-
-        # Distribution of words and frequencies
-        # for k, v in sorted(frequency.items(), key=lambda x: x[1]):
-        #     print(k, v)
-
-        text_data = texts
-        self.texts = [[token for token in text[0] if frequency[token] > 1] for text in text_data]
-        self.artist_ids = [text[1] for text in text_data]
-        return
-
     def tfidf(self):
         vz = self.vectorizer.fit_transform((' '.join(t) for t in self.texts))
         print(len(self.artist_ids[1]))
@@ -187,12 +167,12 @@ class LyricsPipeline:
     def pipelineOne(self):
         """ Vectorized TFIDF -> K-Means -> (for visualization: TSNE) """
         # Perform SVD on vectorized TFIDF data. svd_tfidf is a term-document matrix
-        svd_tfidf = self.svd.fit_transform(self.vz)
+        svd_tfidf = self.svd.fit_transform(self.tfidf_vector)
         logging.log(logging.INFO, svd_tfidf)
 
         # Perform K-means on vectorized TFIDF data
-        self.lyrics_tfidfvect_kmeans_clusters = self.kmeans.predict(self.vz)
-        self.lyrics_tfidfvect_kmeans_distances = self.kmeans.transform(self.vz)
+        self.lyrics_tfidfvect_kmeans_clusters = self.kmeans.predict(self.tfidf_vector)
+        self.lyrics_tfidfvect_kmeans_distances = self.kmeans.transform(self.tfidf_vector)
 
         # Perform TSNE on Kmeans results for visualization
         self.tsne_kmeans = self.tsne_model.fit_transform(self.lyrics_tfidfvect_kmeans_distances)
@@ -208,8 +188,8 @@ class LyricsPipeline:
         # logging.log(logging.INFO, svd_tfidf)
 
         # Perform K-means on vectorized TFIDF data
-        self.lyrics_tfidfvect_kmeans_clusters = self.kmeans.predict(self.vz)
-        self.lyrics_tfidfvect_kmeans_distances = self.kmeans.transform(self.vz)
+        self.lyrics_tfidfvect_kmeans_clusters = self.kmeans.predict(self.tfidf_vector)
+        self.lyrics_tfidfvect_kmeans_distances = self.kmeans.transform(self.tfidf_vector)
 
         # Perform SVD on Kmeans results for visualization
         self.svd_kmeans = self.svd.fit_transform(self.lyrics_tfidfvect_kmeans_distances)
@@ -220,32 +200,181 @@ class LyricsPipeline:
         return kmeans_df
 
     def pipeline_SVD_Kmeans(self):
-        """ Vectorized TFIDF -> K-Means -> SVD """
-        # Perform SVD on vectorized TFIDF data. svd_tfidf is a term-document matrix
-        svd_tfidf = self.svd.fit_transform(self.vz)
-        localkmeans = self.kmeans_model.fit(svd_tfidf)
+        """ Vectorized TFIDF -> SVD -> Kmeans"""
+        # Perform SVD on vectorized TFIDF data
+        svd = TruncatedSVD(n_components=2, random_state=0)
+
+        # Obtain SVD-ed TFIDF Vector
+        svd_tfidf = svd.fit_transform(self.tfidf_vector)
         logging.log(logging.INFO, svd_tfidf)
+        tfidf_df = pd.DataFrame(svd_tfidf, columns=['x', 'y'])
+        logging.log(logging.INFO, tfidf_df)
 
-        # Perform K-means on vectorized TFIDF data
-        localkmeanslyrics_tfidfvect_kmeans_clusters = localkmeans.predict(svd_tfidf)
-        localkmeanslyrics_tfidfvect_kmeans_distances = localkmeans.transform(svd_tfidf)
-        logging.info("Kmeans Distances:  ")
-        logging.log(logging.INFO, localkmeanslyrics_tfidfvect_kmeans_distances)
+        # Perform Kmeans using SVD data
+        kmeans_svd_input_model = MiniBatchKMeans(n_clusters=self.num_clusters, init='k-means++', n_init=1, init_size=1000, batch_size=1000, verbose=False, max_iter=1000)
+        X = StandardScaler().fit_transform(svd_tfidf)
+        kmeans_svd_input_model.fit(X)
 
-        # Perform SVD on Kmeans results for visualization
-        # self.svd_kmeans = self.svd.fit_transform(self.lyrics_tfidfvect_kmeans_distances)
-        # logging.log(logging.INFO, self.svd_kmeans)
-        kmeans_df = pd.DataFrame(localkmeanslyrics_tfidfvect_kmeans_distances, columns=['x', 'y'])
-        kmeans_df['cluster'] = localkmeanslyrics_tfidfvect_kmeans_clusters
+        # Obtain K-means cluster assignments and distances
+        kmeans_clusters = kmeans_svd_input_model.predict(X)
+        kmeans_distances = kmeans_svd_input_model.transform(X)
 
-        return kmeans_df
+        logging.log(logging.INFO, kmeans_clusters)
+        logging.log(logging.INFO, kmeans_distances)
 
+        # Add cluster column
+        tfidf_df['cluster'] = kmeans_clusters
+
+        logging.log(logging.INFO, tfidf_df)
+
+        return tfidf_df
+
+    def pipeline_LDA(self, new_sentence):
+        """ Vectorized TFIDF -> LDA """
+        from sklearn.decomposition import LatentDirichletAllocation
+
+        # Build Model
+        n_topics = 4
+        lda_model = LatentDirichletAllocation(n_topics=n_topics)
+        lda_df = lda_model.fit_transform(self.count_vector)
+        logging.info("TRAINING:")
+        logging.log(logging.INFO, lda_model.transform(self.count_vector))
+        lda_df = pd.DataFrame(lda_df)
+        logging.log(logging.INFO, lda_df)
+
+        temp_columns = {}
+        for i, x in enumerate(["x"+str(i) for i in range(n_topics)]):
+            temp_columns[i] = x
+
+        lda_df.rename(columns=temp_columns, inplace=True)
+        logging.log(logging.INFO, lda_df)
+
+        # I need to (1) run transform to figure out which topic (column) my new data point is part of,
+        # then (2) get all of the rows for which that column is the max column, (3) then figure out which N
+        # songs are the "closest" to the line in question. Then I won't need coords, but will have songs returned
+        #
+
+        # Example of how to call LDA model on new data
+        new_word = self.cvectorizer.transform(new_sentence)
+        new_vector = lda_model.transform(new_word)
+        logging.info("NEW WORD:")
+        logging.log(logging.INFO, new_vector)
+
+        # Merge
+        # Setup new data point for appending
+        prepipi = {"x"+str(i) for i in range(n_topics)}
+        prepipi = dict.fromkeys(prepipi, 0)
+        for key, value in prepipi.items():
+            print(key, value)
+            print(key.split("x"))
+            prepipi[key] = list(new_vector[0])[int(key.split("x")[1])]
+        prepipi['novel'] = 1
+        prepipi = [prepipi]
+        logging.log(logging.INFO, prepipi)
+        pipi = pd.DataFrame().from_dict(prepipi)
+        logging.log(logging.INFO, pipi)
+
+        # add 0 values to novel for current df
+        sLength = len(lda_df['x0'])
+        lda_df["novel"] = np.zeros(sLength)
+        logging.log(logging.INFO, lda_df)
+
+        lda_df = lda_df.append(pipi, ignore_index=True)
+
+        logging.log(logging.INFO, lda_df)
+
+        # Assign cluster column
+        # lda_df contains Topic_dim1, Topic_Dim2, etc...
+        logging.log(logging.INFO, lda_df)
+        groupings = lda_df.apply(lambda l: 0 if np.asarray(l).argmax()-1 < 0 else np.asarray(l).argmax()-1, axis=1)
+        logging.log(logging.INFO, groupings)
+        lda_df['cluster'] = groupings
+        logging.log(logging.INFO, lda_df)
+        # lda_df now has # Topic Dim, novel, and cluster
+
+        # Find the top N closest songs
+        # Obtained the cluster group number of the novel point
+        clusttemp = int(lda_df.loc[lda_df['novel'] == 1]['cluster'])
+        novel_ind = lda_df.loc[lda_df['novel'] == 1].index
+        logging.log(logging.INFO, clusttemp)
+
+        # List of relevant df indices
+        inds = list(lda_df.loc[lda_df['cluster'] == clusttemp].index)
+        logging.log(logging.INFO, inds)
+
+        # Find top 3 closest points in space
+        # df = lda_df.loc[lda_df['cluster'] == clusttemp]
+        df = lda_df.iloc[inds,:]
+        logging.log(logging.INFO, df)
+
+        # Data Row to compare everything with
+        logging.log(logging.INFO, df.loc[novel_ind,])
+
+        vals = df.loc[novel_ind,].drop(["cluster", "novel"], axis=1).values.squeeze()
+
+        # This works: ((df.apply(lambda x: x.drop(["cluster", "novel"]), axis=1) - vals)**2).apply(sum, axis=1)
+        df['distance'] = ((df.apply(lambda x: x.drop(["cluster", "novel"]), axis=1) - vals)**2).apply(sum, axis=1).apply(lambda x: x**0.5)
+
+        logging.log(logging.INFO, df.sort_values(["distance"]).head(n=11).tail(n=10).index)
+        logging.log(logging.INFO, df.sort_values(["distance"]).head(n=11).tail(n=10))
+
+        return df.sort_values(["distance"]).head(n=11).tail(n=10).index
+
+
+
+    def pipeline_LDA_Kmeans(self):
+        """ Vectorized TFIDF -> LDA -> Kmeans """
+        from sklearn.decomposition import LatentDirichletAllocation
+
+        # LDA Model
+        n_topics = 4
+        lda_model = LatentDirichletAllocation(n_topics=n_topics)
+        lda_df = lda_model.fit_transform(self.count_vector)
+        logging.info("TRAINING:")
+        logging.log(logging.INFO, lda_model.transform(self.count_vector))
+
+        lda_df = pd.DataFrame(lda_df, columns=[str(i) for i in range(1,(n_topics+1))])
+        logging.log(logging.INFO, lda_df)
+
+        # Kmeans
+        kmeans_lda_input_model = MiniBatchKMeans(n_clusters=self.num_clusters, init='k-means++', n_init=1, init_size=1000, batch_size=1000, verbose=False, max_iter=1000)
+        X = StandardScaler().fit_transform(lda_df)
+        kmeans_lda_input_model.fit(X)
+
+        # Obtain K-means cluster assignments and distances
+        kmeans_clusters = kmeans_lda_input_model.predict(X)
+        kmeans_distances = kmeans_lda_input_model.transform(X)
+
+        logging.log(logging.INFO, kmeans_clusters)
+        logging.log(logging.INFO, kmeans_distances)
+
+        # Add cluster column
+        lda_df['cluster'] = kmeans_clusters
+
+        logging.log(logging.INFO, lda_df)
+
+        return lda_df
+
+
+        # Print results to screen
+        # self.display_topics(lda_model, self.cvectorizer.get_feature_names(), 10)
+
+    def randomSelection(self, num_songs):
+        """ Takes in an argument for number of songs to return and returns a list of songs"""
+        # Pull N random numbers from range rows of DF
+        top_range = int(len(self.pdf.index))
+        inds = [np.random.randint(0, top_range) for k in range(num_songs)]
+        logging.log(logging.INFO, inds)
+
+        # return df with cluster and novel columns
+        logging.log(logging.INFO, self.pdf.iloc[inds,:])
+        return self.pdf.iloc[inds,:]["commonSongName"]
 
     def pipelineTwo(self):
         """ Vectorized TFIDF -> SVD -> DBSCAN -> (for visualization: TSNE)"""
 
         # Perform SVD on vectorized TFIDF data
-        self.svd_tfidf = self.svd.fit_transform(self.vz)
+        self.svd_tfidf = self.svd.fit_transform(self.tfidf_vector)
         # Perform TSNE on SVD data
         self.tsne_svd_tfidf = self.tsne_model.fit_transform(self.svd_tfidf)
         # Convert TSNE data to data frame (for visualization)
@@ -269,7 +398,7 @@ class LyricsPipeline:
     def pipelineThree(self):
         """ Vectorized TFIDF ->  NNMF  """
         # Perform NNMF on vectorized TFIDF data
-        nmf = self.nmf_model.fit_transform(self.vz)
+        nmf = self.nmf_model.fit_transform(self.tfidf_vector)
         print("Components ")
         print(self.nmf_model.components_)
 
@@ -280,7 +409,7 @@ class LyricsPipeline:
 
     def pipelineFour(self):
         """ Vectorized TFIDF -> LDA """
-        X_topics = self.lda_model.fit_transform(self.cvec)
+        X_topics = self.lda_model.fit_transform(self.count_vector)
 
         # Print results to screen
         self.display_topics(self.lda_model, self.cvectorizer.get_feature_names(), 10)
@@ -347,7 +476,8 @@ class LyricsPipeline:
 
     def extractTopSongs(self, expected_df):
         rel_ind = self.extractClusterAssignment(expected_df)
-        return ((i,v) for i, v in enumerate(self.artist_ids) if i in rel_ind )
+        # return ((i,v) for i, v in enumerate(self.artist_ids) if i in rel_ind )
+        return ((i, v, self.tracks[i]) for i, v in enumerate(self.artist_ids) if i in rel_ind)
 
     def plotDF(self, expected_df):
         """ Expecting df with x, y, cluster """
@@ -372,8 +502,102 @@ class LyricsPipeline:
 
 
 
+class LyricsTextProcessing():
+    def __init__(self, table):
+        # Do Text Processing
+        # self.all_tables = ["19PgP2QSGPcm6Ve8VhbtpG", "37i9dQZF1DWTJ7xPn4vNaz","37i9dQZF1DX1ewVhAJ17m4","37i9dQZF1DX5bjCEbRU4SJ","37i9dQZF1DXbTxeAdrVG2l","37i9dQZF1DXcBWIGoYBM5M","3vxotOnOGDlZXyzJPLFnm2","49oW3sCI91kB2YGw7hsbBv","4tZSI7b1rnGVMdkGeIbCI4","68bXT1MZWZvLOJc0FZrgf7","6wz8ygUKjoHfbU7tB9djeS","7eHApqa9YVkuO6gELsju2j","spotifyplaylistid", "3nrwJoFbrMKSGeHAxaoYSC", "37i9dQZF1DX1XDyq5cTk95"]
+        self.all_tables = [table]
+        self.pdf = self.load_from_SQL()
+        k = self.text_cleaning()
 
+        # Initialize null variables
+        self.texts = k['texts']
+        self.artist_ids = k['artist_ids']
+        self.track_ids = k['track_ids']
+
+    def load_from_SQL(self, table_choice = None):
+        # Load Database
+        DBhelper = SQL()
+        if table_choice:
+            if isinstance(table_choice, (list, tuple)):
+                all_tables = table_choice
+            else:
+                all_tables = [table_choice]
+        else:
+            all_tables = self.all_tables
+        frames = []
+        for p in all_tables:
+            # pdf = pd.read_sql_query("SELECT \"lyrics\", \"commonSongName\" FROM \"" + p +"\"", DBhelper.engine)
+            pdf = pd.read_sql_query("SELECT \"lyrics\", \"commonSongName\", \"SpotifySongURI\" FROM \"" + p +"\"", DBhelper.engine)
+            frames.append(pdf)
+        pdf = pd.concat(frames)
+        del(frames)
+        pdf = pdf[pdf["lyrics"] != ""]
+        pdf.drop_duplicates(["commonSongName"], inplace=True)
+        return pdf
+
+    def text_cleaning(self):
+        documents =  [(str(l[1]), str(l[2]), str(l[3])) for l in self.pdf[["lyrics", "commonSongName", "SpotifySongURI"]].itertuples()]
+        stoplist = set('for a of the and to in yeah who don like got want know baby let hey come tell need said way thing cause little look'.split())
+
+        # Use NLTK tokenizer to correctly split contracted words
+        tokenizer = RegexpTokenizer(r'\w+')
+        # Use NLTK stopwords to make sure common words are not being stored in list
+        stopset = set(spacy.en.STOP_WORDS)
+        en_words = set(words.words())
+        stemmer = SnowballStemmer("english")
+
+        def notStopWord(word):
+            if word not in stopset:
+                if word not in stoplist:
+                    return word
+
+        # Ensure words are lowercase
+        texts = [(list(map(lambda word: word.lower(), tokenizer.tokenize(document[0]))), document[1], document[2]) for document in documents]
+
+        # Ensure words are in the same tense
+        texts = [(list(map(lambda word: WordNetLemmatizer().lemmatize(word, "v"), tokenizer.tokenize(document[0]))), document[1], document[2]) for document in documents]
+
+        # Ensure words are stemmed
+        texts = [(list(map(lambda word: stemmer.stem(word), tokenizer.tokenize(document[0]))), document[1], document[2]) for document in documents]
+
+        # Ensure words are not stopwords
+        texts = [(list(filter(notStopWord, document[0])), document[1], document[2]) for document in texts]
+
+        # Ensure words are at least 3 characters long
+        texts = [(list(filter(lambda word: len(word) >= 3, document[0])), document[1], document[2]) for document in texts]
+
+        # Ensure words with spaces are filtered out
+        texts = [(list(filter(lambda word: ' ' not in word, document[0])), document[1], document[2]) for document in texts]
+
+        # Ensure words are unique
+        texts = [(list(set(document[0])), document[1], document[2]) for document in texts]
+
+        # Ensure word is a real word in english dictionary
+        texts = [(list(filter(lambda word: word in en_words, document[0])), document[1], document[2]) for document in texts]
+
+        # Remove empty lists from list
+        texts = [(document[0], document[1], document[2]) for document in texts if document[0]]
+
+        # remove words that appear only once
+        frequency = defaultdict(int)
+        for text in texts:
+            for token in text[0]:
+                frequency[token] += 1
+
+        # Distribution of words and frequencies
+        # for k, v in sorted(frequency.items(), key=lambda x: x[1]):
+        #     print(k, v)
+
+        text_data = texts
+        texts = [[token for token in text[0] if frequency[token] > 1] for text in text_data]
+        artist_ids = [text[1] for text in text_data]
+        track_ids = [text[2] for text in text_data]
+        return {"texts" : texts, "artist_ids" : artist_ids, "track_ids" : track_ids}
 
 
 if __name__ == "__main__":
     LP = LyricsPipeline()
+    # LTP = LyricsTextProcessing()
+    # print(LTP.texts)
+    # print(LTP.artist_ids)
