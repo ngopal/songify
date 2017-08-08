@@ -470,9 +470,11 @@ class LyricsPipeline:
         #df.to_hdf('foo.h5', 'df') # Run this if I want to save the df
         df["distance"] = df.apply(lambda x: math.sqrt((df[df["novel"] == 1]["x"] - x["x"])**2 + (df[df["novel"] == 1]["y"] - x["y"])**2), axis=1)
 
-        logging.log(logging.INFO, df.sort_values(["distance"]).head(n=11).tail(n=10).index)
+        # logging.log(logging.INFO, df.sort_values(["distance"]).head(n=11).tail(n=10).index)
+        logging.log(logging.INFO, df.sort_values(["distance"]).index)
 
-        return df.sort_values(["distance"]).head(n=11).tail(n=10).index
+        # return df.sort_values(["distance"]).head(n=11).tail(n=10).index
+        return df.sort_values(["distance"]).index
 
     def extractTopSongs(self, expected_df):
         rel_ind = self.extractClusterAssignment(expected_df)

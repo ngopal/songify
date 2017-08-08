@@ -55,10 +55,10 @@ def app_page():
     songs = []
     return render_template("app.html", songs = songs[1:5])
 
-
 @app.route('/result', methods = ['POST'])
 def result_page():
     model_choices = {
+        "validationlarge" : "1NfEJI43DKEL9FBcHVAasi",
         "validation" : "5LCI3ja6TCrmoQDLZ2FYem",
         "80s" : "19PgP2QSGPcm6Ve8VhbtpG",
         "90s" : "6wz8ygUKjoHfbU7tB9djeS",
@@ -119,9 +119,15 @@ def result_page():
         Model = DocModel(model_choices[result.getlist('musicdrop')[0]])
         ####### DEBUGGING AND VALIDATION PURPOSE
         #
-        words = ['car']
+        words = ['moon'] # try highways, coast, "living in america"
         #
         ###################
+
+        ####### FOR PRESENTATION #####
+        #
+        # words = ['n03942813 ping-pong ball', 'n03063599 coffee mug', 'n04081281 restaurant, eating house, eating place, eatery', 'n04350905 suit, suit of clothes', 'n04350905 suit, suit of clothes']
+        #
+        ##############################
 
         # modelResults contains a dictionary with keys "uris" and "songs", each of which contains a sorted list
         # nullModel function takes a list of words as input
@@ -147,14 +153,154 @@ def result_page():
         # spotify_track_url = "https://open.spotify.com/embed?uri=spotify:track:7LFer4drCtWSyD8oxORZtC&theme=white"
         logging.log(logging.INFO, songs)
         ## for debug
-        # for song, score in songs:
-        #     print(song, '\t', score)
-        for i, v in enumerate(songs):
-            print(v)
+        if algo_choice == "wordvec":
+            for song, score in songs:
+                print(song, '\t', score)
+        elif algo_choice == "kmeans-svd":
+            for i, v in enumerate(songs):
+                print(v)
+        elif algo_choice == "svd-kmeans":
+            for i, v in enumerate(songs):
+                print(v)
+        elif algo_choice == "lda":
+            for i, v in enumerate(songs):
+                print(v)
+        else:
+            for song, score in songs:
+                print(song, '\t', score)
         ##
         spotify_track_url = "https://open.spotify.com/embed?uri="+uris[0][0]+"&theme=white"
+        spotify_track_url2 = "https://open.spotify.com/embed?uri="+uris[1][0]+"&theme=white"
+        spotify_track_url3 = "https://open.spotify.com/embed?uri="+uris[2][0]+"&theme=white"
         video_name = files[f].filename.split(".")[0]+'/'+files[f].filename.split(".")[0]+".mp4"
-        return render_template("results.html", songs = songs[0:4], keywords=words, spotify_track_url=spotify_track_url, video_name=video_name)
+        return render_template("results.html", songs = songs, keywords=words, spotify_track_url=spotify_track_url, spotify_track_url2=spotify_track_url2, spotify_track_url3=spotify_track_url3, video_name=video_name)
+
+@app.route('/demo')
+def demo_app_page():
+    songs = []
+    return render_template("app.html", songs = songs[1:5])
+
+@app.route('/demo-result', methods = ['POST'])
+def demo_result_page():
+    model_choices = {
+        "validationlarge" : "1NfEJI43DKEL9FBcHVAasi",
+        "validation" : "5LCI3ja6TCrmoQDLZ2FYem",
+        "80s" : "19PgP2QSGPcm6Ve8VhbtpG",
+        "90s" : "6wz8ygUKjoHfbU7tB9djeS",
+        "insight" : "spotifyplaylistid",
+        "muzic" : "7eHApqa9YVkuO6gELsju2j",
+        "megan" : "4tZSI7b1rnGVMdkGeIbCI4"
+    }
+    # algo_choice = {
+    #     "wordvec" : None,
+    #     "lda" : None,
+    #     "keamns-svd" : None,
+    #     "svd-kmeans" : None
+    # }
+    if request.method == 'POST':
+        result = request.form
+        files = request.files
+        print(result.getlist('musicdrop'))
+        print(files)
+        # words = ['n04162706 seat belt, seatbelt', 'n02965783 car mirror', 'n03452741 grand piano, grand', 'n04070727 refrigerator, icebox', 'n04162706 seat belt, seatbelt', 'n04200800 shoe shop, shoe-shop, shoe store', 'n03670208 limousine, limo', 'n02687172 aircraft carrier, carrier, flattop, attack aircraft carrier', 'n04356056 sunglasses, dark glasses, shades', 'n04356056 sunglasses, dark glasses, shades', 'n03534580 hoopskirt, crinoline', 'n03032252 cinema, movie theater, movie theatre, movie house, picture palace']
+        words = []
+
+        # If Spotify URL provided then bleh
+        # If dropdown, then blah
+        # Else fail so hard it will make you cry
+
+        for f in files:
+            # print(files[f])
+            # print(files[f].filename)
+            # Check to see that vid_dir doesn't equal app.config['UPLOAD_FOLDER']
+            # Create directories and upload files if it doesn't already exist
+            vid_dir = os.path.join(app.config['UPLOAD_FOLDER'], files[f].filename.split(".")[0])
+            frames_dir = os.path.join(app.config['UPLOAD_FOLDER'], files[f].filename.split(".")[0], "frames/")
+            vid_file = os.path.join(vid_dir, files[f].filename)
+            print(vid_file)
+            print(video_words_cache)
+            if vid_file not in video_words_cache:
+                if not os.path.isdir(vid_dir):
+                    os.mkdir(vid_dir)
+                if not os.path.isdir(frames_dir):
+                    os.mkdir(frames_dir)
+                if not os.path.isfile(vid_file):
+                    files[f].save(os.path.join(vid_dir, files[f].filename))
+
+                    # Downsample video frames into images
+                    # VP = VideoProc()
+                    # VP.downSampleVideo(vid_file, frames_dir, 60)
+                    #
+                    # # Run pre-trained NN on images
+                    # words = VP.analyzeImagesInDir(frames_dir)
+                    #
+                    # # Cache
+                    # video_words_cache[vid_file] = words
+            else:
+                words = video_words_cache[vid_file]
+
+        # Model = DocModel(model_choices[result.getlist('musicdrop')[0]])
+        print("TABLE CHOICE", "\""+model_choices[result.getlist('musicdrop')[0]]+"\"")
+        Model = DocModel(model_choices[result.getlist('musicdrop')[0]])
+        ####### DEBUGGING AND VALIDATION PURPOSE
+        #
+        words = ['moon'] # try highways, coast, "living in america"
+        #
+        ###################
+
+        ####### FOR PRESENTATION #####
+        #
+        # words = ['n03942813 ping-pong ball', 'n03063599 coffee mug', 'n04081281 restaurant, eating house, eating place, eatery', 'n04350905 suit, suit of clothes', 'n04350905 suit, suit of clothes']
+        #
+        ##############################
+
+        # modelResults contains a dictionary with keys "uris" and "songs", each of which contains a sorted list
+        # nullModel function takes a list of words as input
+        algo_choice = result.getlist('algorithm')[0]
+        if algo_choice == "wordvec":
+            print("Running Word2Vec")
+            modelResults = Model.nullModel(words)
+        elif algo_choice == "kmeans-svd":
+            print("Running Kmeans -> SVD")
+            modelResults = Model.kmeans_svd(words)
+        elif algo_choice == "svd-kmeans":
+            print("Running SVD -> Kmeans")
+            modelResults = Model.svd_kmeans(words)
+        elif algo_choice == "lda":
+            print("Running LDA")
+            modelResults = Model.lda(words)
+        else:
+            print("Running Word2Vec")
+            modelResults = Model.nullModel(words)
+
+        songs = modelResults['songs']
+        uris = modelResults["uris"]
+        # spotify_track_url = "https://open.spotify.com/embed?uri=spotify:track:7LFer4drCtWSyD8oxORZtC&theme=white"
+        logging.log(logging.INFO, songs)
+        ## for debug
+        if algo_choice == "wordvec":
+            for song, score in songs:
+                print(song, '\t', score)
+        elif algo_choice == "kmeans-svd":
+            for i, v in enumerate(songs):
+                print(v)
+        elif algo_choice == "svd-kmeans":
+            for i, v in enumerate(songs):
+                print(v)
+        elif algo_choice == "lda":
+            for i, v in enumerate(songs):
+                print(v)
+        else:
+            for song, score in songs:
+                print(song, '\t', score)
+        ##
+        spotify_track_url = "https://open.spotify.com/embed?uri="+uris[0][0]+"&theme=white"
+        spotify_track_url2 = "https://open.spotify.com/embed?uri="+uris[1][0]+"&theme=white"
+        spotify_track_url3 = "https://open.spotify.com/embed?uri="+uris[2][0]+"&theme=white"
+        video_name = files[f].filename.split(".")[0]+'/'+files[f].filename.split(".")[0]+".mp4"
+        return render_template("results.html", songs = songs[0:4], keywords=words, spotify_track_url=spotify_track_url, spotify_track_url2=spotify_track_url2, spotify_track_url3=spotify_track_url3, video_name=video_name)
+
+
 
 @app.route("/video/<path:path>")
 def simpler(path):

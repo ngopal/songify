@@ -3,15 +3,20 @@ import requests
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import numpy as np
+from Credentials import Credentials
+import spotipy.util as util
 
 
 class SpotifyHelper:
     def __init__(self):
         self.pl = None
-        self.client_credentials_manager = SpotifyClientCredentials(client_id='dd4a138913544c12bf60424687fbbb83', client_secret='6d06781d13204cfca63f0f338a09a937')
-        self.sp = spotipy.Spotify(client_credentials_manager=self.client_credentials_manager)
+        self.Cred = Credentials()
+        # self.token = util.prompt_for_user_token("acesamped")
+        self.client_credentials_manager = SpotifyClientCredentials(client_id=self.Cred.SpotifyClientID(), client_secret=self.Cred.SpotifyClientSecret())
+        self.sp = spotipy.Spotify(client_credentials_manager=self.client_credentials_manager, auth=self.token)
         self.user = self.sp.user('acesamped')
         self.userPlaylist = 'spotify:user:acesamped:playlist:1PB7C1ACj6d9ZKQh2U1SrU'
+
 
     def get_lyrics(self,song,artist):
         """ Given a song and artist combination, create the url from musixmatch """

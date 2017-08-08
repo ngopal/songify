@@ -1,4 +1,5 @@
 NNmodels
+Credentials.py
 testvideos
 *.pyc
 flaskapp/flaskexample/uploads

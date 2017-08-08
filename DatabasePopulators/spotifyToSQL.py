@@ -24,7 +24,8 @@ from Helpers.Spotifyhelper import SpotifyHelper
 # pl = "spotify:user:sonymusicfinland:playlist:3nrwJoFbrMKSGeHAxaoYSC" #greatest hits of the 90s
 # pl = "spotify:user:spotify:playlist:37i9dQZF1DX1XDyq5cTk95" # this is radiohead
 # pl = "spotify:user:acesamped:playlist:5Tg33HMQR8ANtuyDg5XnJA" # RAM - Daft Punk
-pl = "spotify:user:acesamped:playlist:5LCI3ja6TCrmoQDLZ2FYem"
+# pl = "spotify:user:acesamped:playlist:5LCI3ja6TCrmoQDLZ2FYem" # Validation Set
+pl = "spotify:user:acesamped:playlist:1NfEJI43DKEL9FBcHVAasi" # Validation Set Large
 pl_name = pl.split(":")[-1]
 print(pl_name)
 SPhelper = SpotifyHelper()
